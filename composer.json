@@ -2,7 +2,7 @@
   "name": "eloom/sdk-bling-php",
   "description": "SDK PHP Bling v3",
   "type": "library",
-  "homepage": "https://github.com/eloom/bling-v3-sdk",
+  "homepage": "https://github.com/eloom/sdk-bling-php",
   "require": {
     "php": "~7.3|~7.4|~8.1|~8.2",
     "guzzlehttp/guzzle": ">=6.3"
