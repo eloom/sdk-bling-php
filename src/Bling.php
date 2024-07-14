@@ -1,6 +1,6 @@
 <?php
 
-namespace Eloom\Bling;
+namespace Eloom\SdkBling;
 
 use Eloom\SdkBling\Client\Response;
 use Eloom\SdkBling\Client\RestClientApi;
@@ -30,7 +30,7 @@ class Bling {
 		$this->secretKey = $secretKey;
 	}
 	
-	public function requestAuthorization($state = null, $permission = null, $redirect = true) {
+	public function requestAuthorization($state = null, $permission = null, $redirect = false) {
 		$this->state = $state ?: md5(time());
 		
 		$query = "&state=" . $this->state;

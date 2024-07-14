@@ -23,19 +23,19 @@ class Contato implements \JsonSerializable {
 	
 	/**
 	 * @var string
-	 * /
+	 * 
 	 */
 	private $numeroDocumento;
 	
 	/**
 	 * @var string
-	 * /
+	 * 
 	 */
 	private $ie;
 	
 	/**
 	 * @var string
-	 * /
+	 * 
 	 */
 	private $rg;
 	
@@ -46,13 +46,13 @@ class Contato implements \JsonSerializable {
 	
 	/**
 	 * @var string
-	 * /
+	 * 
 	 */
 	private $telefone;
 	
 	/**
 	 * @var string
-	 * /
+	 * 
 	 */
 	private $email;
 	
