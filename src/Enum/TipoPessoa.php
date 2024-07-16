@@ -4,7 +4,7 @@
 
 namespace Eloom\SdkBling\Enum;
 
-class TipoPessoaEnum extends BaseEnum {
+class TipoPessoa extends BaseEnum {
 	
 	/**
 	 * Pessoa Jurídica

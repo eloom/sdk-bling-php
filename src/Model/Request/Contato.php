@@ -2,7 +2,7 @@
 
 namespace Eloom\SdkBling\Model\Request;
 
-use Eloom\SdkBling\Enum\TipoPessoaEnum;
+use Eloom\SdkBling\Enum\TipoPessoa;
 
 class Contato implements \JsonSerializable {
 	
@@ -17,7 +17,7 @@ class Contato implements \JsonSerializable {
 	private $nome;
 	
 	/**
-	 * @var TipoPessoaEnum
+	 * @var TipoPessoa
 	 */
 	private $tipoPessoa;
 	
@@ -77,11 +77,11 @@ class Contato implements \JsonSerializable {
 		$this->nome = $nome;
 	}
 	
-	public function getTipoPessoa(): TipoPessoaEnum {
+	public function getTipoPessoa(): TipoPessoa {
 		return $this->tipoPessoa;
 	}
 	
-	public function setTipoPessoa(TipoPessoaEnum $tipoPessoa): void {
+	public function setTipoPessoa(TipoPessoa $tipoPessoa): void {
 		$this->tipoPessoa = $tipoPessoa;
 	}
 	

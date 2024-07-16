@@ -2,7 +2,7 @@
 
 namespace Eloom\SdkBling\Model\Request;
 
-use Eloom\SdkBling\Enum\FinalidadeEnum;
+use Eloom\SdkBling\Enum\Finalidade;
 
 class Nfe implements \JsonSerializable {
 	
@@ -44,7 +44,7 @@ class Nfe implements \JsonSerializable {
 	private $loja;
 	
 	/**
-	 * @var FinalidadeEnum
+	 * @var Finalidade
 	 */
 	private $finalidade;
 	
@@ -111,6 +111,18 @@ class Nfe implements \JsonSerializable {
 	 * @var Intermediador
 	 */
 	private $intermediador;
+
+    public static function of(): Nfe {
+        return new Nfe();
+    }
+
+    public static function build(): Nfe {
+        $instance = Nfe::of();
+        $instance->setItens([]);
+        $instance->setParcelas([]);
+
+        return $instance;
+    }
 	
 	public function getId(): int {
 		return $this->id;
@@ -182,11 +194,11 @@ class Nfe implements \JsonSerializable {
 		$this->loja = $loja;
 	}
 	
-	public function getFinalidade(): FinalidadeEnum {
+	public function getFinalidade(): Finalidade {
 		return $this->finalidade;
 	}
 	
-	public function setFinalidade(FinalidadeEnum $finalidade): void {
+	public function setFinalidade(Finalidade $finalidade): void {
 		$this->finalidade = $finalidade;
 	}
 	

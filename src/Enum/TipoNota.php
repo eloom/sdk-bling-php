@@ -4,7 +4,7 @@
 
 namespace Eloom\SdkBling\Enum;
 
-class TipoNotaEnum extends BaseEnum {
+class TipoNota extends BaseEnum {
 	
 	/**
 	 * Nota de Entrada

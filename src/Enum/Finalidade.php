@@ -4,7 +4,7 @@
 
 namespace Eloom\SdkBling\Enum;
 
-class FinalidadeEnum extends BaseEnum {
+class Finalidade extends BaseEnum {
 	
 	const NORMAL = 1;
 	
