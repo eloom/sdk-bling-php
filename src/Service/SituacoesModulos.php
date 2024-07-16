@@ -5,7 +5,7 @@ namespace Eloom\SdkBling\Service;
 use Eloom\SdkBling\Util\Collection;
 use Eloom\SdkBling\Service\Traits\Service;
 
-class SituacoesModulos extends BaseService {
+class SituacoesModulos extends RootService {
 	use Service;
 	
 	protected $uri = 'situacoes/modulos';

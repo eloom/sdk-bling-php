@@ -2,8 +2,8 @@
 
 namespace Eloom\SdkBling\Service;
 
-class NfceService extends RootService {
-	protected $uri = 'nfce';
+class NfeService extends RootService {
+	protected $uri = 'nfe';
 	
 	public function create(array $data) {
 		$response = $this->request('POST', $this->uri, [

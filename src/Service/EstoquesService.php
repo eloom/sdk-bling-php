@@ -4,7 +4,7 @@ namespace Eloom\SdkBling\Service;
 
 use Eloom\SdkBling\Service\Traits\Service;
 
-class EstoquesService extends BaseService {
+class EstoquesService extends RootService {
 	use Service;
 	
 	protected $uri = 'estoques';

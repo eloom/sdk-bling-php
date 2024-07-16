@@ -4,7 +4,7 @@ namespace Eloom\SdkBling\Service;
 
 use Eloom\SdkBling\Client\RestClientApi;
 
-abstract class BaseService {
+abstract class RootService {
 	/**
 	 * @var RestClientApi
 	 */

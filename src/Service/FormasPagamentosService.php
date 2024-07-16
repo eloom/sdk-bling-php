@@ -4,7 +4,7 @@ namespace Eloom\SdkBling\Service;
 
 use Eloom\SdkBling\Service\Traits\Service;
 
-class FormasPagamentosService extends BaseService {
+class FormasPagamentosService extends RootService {
 	use Service;
 	
 	public const TIPOS_PAGAMENTOS = [
