@@ -4,7 +4,6 @@ namespace Eloom\SdkBling;
 
 use Eloom\SdkBling\Client\Response;
 use Eloom\SdkBling\Client\RestClientApi;
-use Eloom\SdkBling\Endpoints\Endpoint;
 
 class Bling {
 	
@@ -48,36 +47,14 @@ class Bling {
 		}
 	}
 	
-	/**
-	 * Método responsável por solicitar um token de acesso na plataforma do bling.
-	 * Esse método é utilizado quando nunca foi solicitado um token antes.
-	 *
-	 * @param $code // Codigo retornado pela plaforma quando solicita a permissão
-	 * @return \stdClass
-	 */
 	public function requestToken(string $code): \stdClass {
 		return $this->requestoOrRefreshToken($code);
 	}
 	
-	/**
-	 * Método responsável por solicitar a renovação de um token de acesso já existente
-	 * na plataforma do Bling.
-	 *
-	 * @param $refreshToken // Token de atualização do token de solicitação
-	 * @return array
-	 */
 	public function refreshToken($refreshToken) {
 		return $this->requestoOrRefreshToken(null, $refreshToken);
 	}
 	
-	/**
-	 * Método interno responsável por realizar a configuração e a requisição
-	 * tanto para gerar um token novo como para renovar um token já existente.
-	 *
-	 * @param null $code
-	 * @param null $refreshToken
-	 * @return \stdClass
-	 */
 	protected function requestoOrRefreshToken($code = null, $refreshToken = null): \stdClass {
 		$payload = [];
 		
@@ -89,9 +66,7 @@ class Bling {
 			$payload["code"] = $code;
 		}
 		
-		$response = $this->getApiClient()->request("POST", "oauth/token", ['json' => $payload])->getResponse();
-		
-		return $response;
+		return $this->getApiClient()->request("POST", "oauth/token", ['json' => $payload])->getResponse();
 	}
 	
 	public function products(): Service\ProdutosService {
