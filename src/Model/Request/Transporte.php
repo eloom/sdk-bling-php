@@ -75,6 +75,10 @@ class Transporte implements \JsonSerializable {
 	}
 
 	public function getVeiculo(): Veiculo {
+		if(null != $this->volume) {
+			$this->volume = Volume::of();
+		}
+
 		return $this->veiculo;
 	}
 
@@ -83,6 +87,10 @@ class Transporte implements \JsonSerializable {
 	}
 
 	public function getTransportador(): Transportador {
+		if(null != $this->transportador) {
+			$this->transportador = Transportador::of();
+		}
+
 		return $this->transportador;
 	}
 
@@ -91,6 +99,10 @@ class Transporte implements \JsonSerializable {
 	}
 
 	public function getVolume(): Volume {
+		if(null != $this->volume) {
+			$this->volume = Volume::of();
+		}
+
 		return $this->volume;
 	}
 
@@ -102,7 +114,7 @@ class Transporte implements \JsonSerializable {
 		if (null == $this->volumes) {
 			$this->volumes = new Collection([]);
 		}
-		
+
 		return $this->volumes;
 	}
 
@@ -111,6 +123,10 @@ class Transporte implements \JsonSerializable {
 	}
 
 	public function getEtiqueta(): Etiqueta {
+		if(null != $this->etiqueta) {
+			$this->etiqueta = Etiqueta::of();
+		}
+
 		return $this->etiqueta;
 	}
 
