@@ -75,8 +75,8 @@ class Transporte implements \JsonSerializable {
 	}
 
 	public function getVeiculo(): Veiculo {
-		if(null != $this->volume) {
-			$this->volume = Volume::of();
+		if(null != $this->veiculo) {
+			$this->veiculo = Volume::of();
 		}
 
 		return $this->veiculo;
