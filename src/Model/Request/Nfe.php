@@ -2,11 +2,11 @@
 
 namespace Eloom\SdkBling\Model\Request;
 
+use DateTime;
 use Eloom\SdkBling\Enum\Finalidade;
 use Eloom\SdkBling\Util\Collection;
 
-class Nfe implements \JsonSerializable
-{
+class Nfe implements \JsonSerializable {
 
 	/**
 	 * @var integer
@@ -26,12 +26,12 @@ class Nfe implements \JsonSerializable
 	private $numero;
 
 	/**
-	 * @var \DateTime
+	 * @var DateTime
 	 */
 	private $dataEmissao;
 
 	/**
-	 * @var \DateTime
+	 * @var DateTime
 	 */
 	private $dataOperacao;
 
@@ -170,23 +170,27 @@ class Nfe implements \JsonSerializable
 		$this->numero = $numero;
 	}
 
-	public function getDataEmissao(): \DateTime {
+	public function getDataEmissao(): DateTime {
 		return $this->dataEmissao;
 	}
 
-	public function setDataEmissao(\DateTime $dataEmissao): void {
+	public function setDataEmissao(DateTime $dataEmissao): void {
 		$this->dataEmissao = $dataEmissao;
 	}
 
-	public function getDataOperacao(): \DateTime {
+	public function getDataOperacao(): DateTime {
 		return $this->dataOperacao;
 	}
 
-	public function setDataOperacao(\DateTime $dataOperacao): void {
+	public function setDataOperacao(DateTime $dataOperacao): void {
 		$this->dataOperacao = $dataOperacao;
 	}
 
 	public function getNaturezaOperacao(): NaturezaOperacao {
+		if (null == $this->naturezaOperacao) {
+			$this->naturezaOperacao = NaturezaOperacao::of();
+		}
+
 		return $this->naturezaOperacao;
 	}
 
@@ -195,6 +199,10 @@ class Nfe implements \JsonSerializable
 	}
 
 	public function getLoja(): Loja {
+		if (null == $this->loja) {
+			$this->loja = Loja::of();
+		}
+
 		return $this->loja;
 	}
 
@@ -203,6 +211,10 @@ class Nfe implements \JsonSerializable
 	}
 
 	public function getFinalidade(): Finalidade {
+		if (null == $this->finalidade) {
+			$this->finalidade = Finalidade::of();
+		}
+
 		return $this->finalidade;
 	}
 
@@ -275,6 +287,10 @@ class Nfe implements \JsonSerializable
 	}
 
 	public function getDocumentoReferenciado(): DocumentoReferenciado {
+		if (null == $this->documentoReferenciado) {
+			$this->documentoReferenciado = DocumentoReferenciado::of();
+		}
+
 		return $this->documentoReferenciado;
 	}
 
@@ -283,6 +299,10 @@ class Nfe implements \JsonSerializable
 	}
 
 	public function getItens(): Collection {
+		if (null == $this->itens) {
+			$this->itens = new Collection([]);
+		}
+
 		return $this->itens;
 	}
 
@@ -291,6 +311,10 @@ class Nfe implements \JsonSerializable
 	}
 
 	public function getParcelas(): Collection {
+		if (null == $this->parcelas) {
+			$this->parcelas = new Collection([]);
+		}
+
 		return $this->parcelas;
 	}
 
@@ -299,6 +323,10 @@ class Nfe implements \JsonSerializable
 	}
 
 	public function getTransporte(): Transport {
+		if (null == $this->transporte) {
+			$this->transporte = Transport::of();
+		}
+
 		return $this->transporte;
 	}
 
@@ -307,6 +335,10 @@ class Nfe implements \JsonSerializable
 	}
 
 	public function getNotaFiscalProdutorRuralReferenciada(): NotaFiscalProdutorRuralReferenciada {
+		if (null == $this->notaFiscalProdutorRuralReferenciada) {
+			$this->intermediador = NotaFiscalProdutorRuralReferenciada::of();
+		}
+
 		return $this->notaFiscalProdutorRuralReferenciada;
 	}
 
@@ -315,6 +347,10 @@ class Nfe implements \JsonSerializable
 	}
 
 	public function getIntermediador(): Intermediador {
+		if (null == $this->intermediador) {
+			$this->intermediador = Intermediador::of();
+		}
+
 		return $this->intermediador;
 	}
 

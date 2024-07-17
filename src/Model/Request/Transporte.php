@@ -4,8 +4,7 @@ namespace Eloom\SdkBling\Model\Request;
 
 use Eloom\SdkBling\Util\Collection;
 
-class Transporte implements \JsonSerializable
-{
+class Transporte implements \JsonSerializable {
 
 	private $fretePorConta;
 
@@ -42,7 +41,7 @@ class Transporte implements \JsonSerializable
 
 	public static function build(): Transporte {
 		$instance = Transporte::of();
-		$instance->setVolumes(new Collection());
+		$instance->setVolumes(new Collection([]));
 
 		return $instance;
 	}

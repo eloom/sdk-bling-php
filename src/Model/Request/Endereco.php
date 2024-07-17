@@ -2,8 +2,7 @@
 
 namespace Eloom\SdkBling\Model\Request;
 
-class Endereco implements \JsonSerializable
-{
+class Endereco implements \JsonSerializable {
 
 	/**
 	 * @var string

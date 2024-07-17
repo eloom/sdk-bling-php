@@ -2,8 +2,7 @@
 
 namespace Eloom\SdkBling\Model\Request;
 
-class FormaPagamento
-{
+class FormaPagamento {
 
 	/**
 	 * @var integer

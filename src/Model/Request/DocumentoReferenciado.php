@@ -4,8 +4,7 @@ namespace Eloom\SdkBling\Model\Request;
 
 use DateTime;
 
-class DocumentoReferenciado implements \JsonSerializable
-{
+class DocumentoReferenciado implements \JsonSerializable {
 
 	/**
 	 * @var

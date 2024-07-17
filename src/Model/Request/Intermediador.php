@@ -2,8 +2,7 @@
 
 namespace Eloom\SdkBling\Model\Request;
 
-class Intermediador implements \JsonSerializable
-{
+class Intermediador implements \JsonSerializable {
 
 	/**
 	 * @var string

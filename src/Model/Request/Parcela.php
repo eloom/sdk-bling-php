@@ -4,8 +4,7 @@ namespace Eloom\SdkBling\Model\Request;
 
 use DateTime;
 
-class Parcela implements \JsonSerializable
-{
+class Parcela implements \JsonSerializable {
 
 	/**
 	 * @var DateTime

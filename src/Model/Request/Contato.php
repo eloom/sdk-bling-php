@@ -4,8 +4,7 @@ namespace Eloom\SdkBling\Model\Request;
 
 use Eloom\SdkBling\Enum\TipoPessoa;
 
-class Contato implements \JsonSerializable
-{
+class Contato implements \JsonSerializable {
 
 	/**
 	 * @var integer

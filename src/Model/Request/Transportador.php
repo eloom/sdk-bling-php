@@ -2,8 +2,7 @@
 
 namespace Eloom\SdkBling\Model\Request;
 
-class Transportador implements \JsonSerializable
-{
+class Transportador implements \JsonSerializable {
 
 	/**
 	 * @var string

@@ -2,8 +2,7 @@
 
 namespace Eloom\SdkBling\Model\Request;
 
-class Rastreamento implements \JsonSerializable
-{
+class Rastreamento implements \JsonSerializable {
 
 	/**
 	 * @var integer

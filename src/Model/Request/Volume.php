@@ -2,8 +2,7 @@
 
 namespace Eloom\SdkBling\Model\Request;
 
-class Volume implements \JsonSerializable
-{
+class Volume implements \JsonSerializable {
 
 	/**
 	 * @var integer

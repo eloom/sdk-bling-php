@@ -4,8 +4,7 @@ namespace Eloom\SdkBling\Model\Request;
 
 use DateTime;
 
-class NotaFiscalProdutorRuralReferenciada implements \JsonSerializable
-{
+class NotaFiscalProdutorRuralReferenciada implements \JsonSerializable {
 
 	/**
 	 * @var string

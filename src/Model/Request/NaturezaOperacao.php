@@ -2,8 +2,7 @@
 
 namespace Eloom\SdkBling\Model\Request;
 
-class NaturezaOperacao implements \JsonSerializable
-{
+class NaturezaOperacao implements \JsonSerializable {
 
 	/**
 	 * @var integer

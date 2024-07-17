@@ -2,8 +2,7 @@
 
 namespace Eloom\SdkBling\Model\Request;
 
-class Etiqueta implements \JsonSerializable
-{
+class Etiqueta implements \JsonSerializable {
 
 	/**
 	 * @var string

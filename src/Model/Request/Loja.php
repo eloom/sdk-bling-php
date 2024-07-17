@@ -2,8 +2,7 @@
 
 namespace Eloom\SdkBling\Model\Request;
 
-class Loja implements \JsonSerializable
-{
+class Loja implements \JsonSerializable {
 
 	/**
 	 * @var integer

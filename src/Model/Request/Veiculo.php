@@ -2,8 +2,7 @@
 
 namespace Eloom\SdkBling\Model\Request;
 
-class Veiculo implements \JsonSerializable
-{
+class Veiculo implements \JsonSerializable {
 
 	/**
 	 * @var string
