@@ -373,10 +373,10 @@ class Nfe implements \JsonSerializable {
 			$vars['numero'] = $this->numero;
 		}
 		if (null != $this->dataEmissao) {
-			$vars['dataEmissao'] = $this->dataEmissao->format('Y-m-d');
+			$vars['dataEmissao'] = $this->dataEmissao->format('Y-m-d H:i:s');
 		}
 		if (null != $this->dataOperacao) {
-			$vars['dataOperacao'] = $this->dataOperacao->format('Y-m-d');
+			$vars['dataOperacao'] = $this->dataOperacao->format('Y-m-d H:i:s');
 		}
 		if (null != $this->finalidade) {
 			$vars['finalidade'] = $this->finalidade;
