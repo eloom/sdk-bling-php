@@ -3,317 +3,325 @@
 namespace Eloom\SdkBling\Model\Request;
 
 use Eloom\SdkBling\Enum\Finalidade;
+use Eloom\SdkBling\Util\Collection;
 
-class Nfe implements \JsonSerializable {
-	
+class Nfe implements \JsonSerializable
+{
+
 	/**
 	 * @var integer
 	 */
 	private $id;
-	
+
 	/**
 	 * @var int
 	 */
 	private $tipo;
-	
+
 	private $situacao;
-	
+
 	/**
 	 * @var string
 	 */
 	private $numero;
-	
+
 	/**
 	 * @var \DateTime
 	 */
 	private $dataEmissao;
-	
+
 	/**
 	 * @var \DateTime
 	 */
 	private $dataOperacao;
-	
+
 	/**
 	 * @var NaturezaOperacao
 	 */
 	private $naturezaOperacao;
-	
+
 	/**
 	 * @var Loja
 	 */
 	private $loja;
-	
+
 	/**
 	 * @var Finalidade
 	 */
 	private $finalidade;
-	
+
 	/**
 	 * @var float
 	 */
 	private $seguro;
-	
+
 	/**
 	 * @var float
 	 */
 	private $despesas;
-	
+
 	/**
 	 * @var float
 	 */
 	private $desconto;
-	
+
 	/**
 	 * @var string
 	 */
 	private $observacoes;
-	
+
 	/**
 	 * @var string
 	 */
 	private $chaveAcesso;
-	
+
 	/**
 	 * @var string
 	 */
 	private $xml;
-	
+
 	/**
 	 * @var string
 	 */
 	private $linkDanfe;
-	
+
 	/**
 	 * @var string
 	 */
 	private $linkPDF;
-	
+
 	/**
 	 * @var DocumentoReferenciado
 	 */
 	private $documentoReferenciado;
-	
-	private $itens = [];
-	
-	private $parcelas = [];
-	
+
+	/**
+	 * @var Collection
+	 */
+	private $itens;
+
+	/**
+	 * @var Collection
+	 */
+	private $parcelas;
+
 	/**
 	 * @var Transport
 	 */
 	private $transporte;
-	
+
 	/**
 	 * @var NotaFiscalProdutorRuralReferenciada
 	 */
 	private $notaFiscalProdutorRuralReferenciada;
-	
+
 	/**
 	 * @var Intermediador
 	 */
 	private $intermediador;
 
-    public static function of(): Nfe {
-        return new Nfe();
-    }
+	public static function of(): Nfe {
+		return new Nfe();
+	}
 
-    public static function build(): Nfe {
-        $instance = Nfe::of();
-        $instance->setItens([]);
-        $instance->setParcelas([]);
+	public static function build(): Nfe {
+		$instance = Nfe::of();
+		$instance->setItens(new Collection());
+		$instance->setParcelas(new Collection());
 
-        return $instance;
-    }
-	
+		return $instance;
+	}
+
 	public function getId(): int {
 		return $this->id;
 	}
-	
+
 	public function setId(int $id): void {
 		$this->id = $id;
 	}
-	
+
 	public function getTipo(): int {
 		return $this->tipo;
 	}
-	
+
 	public function setTipo(int $tipo): void {
 		$this->tipo = $tipo;
 	}
-	
+
 	/**
 	 * @return mixed
 	 */
 	public function getSituacao() {
 		return $this->situacao;
 	}
-	
+
 	/**
 	 * @param mixed $situacao
 	 */
 	public function setSituacao($situacao): void {
 		$this->situacao = $situacao;
 	}
-	
+
 	public function getNumero(): string {
 		return $this->numero;
 	}
-	
+
 	public function setNumero(string $numero): void {
 		$this->numero = $numero;
 	}
-	
+
 	public function getDataEmissao(): \DateTime {
 		return $this->dataEmissao;
 	}
-	
+
 	public function setDataEmissao(\DateTime $dataEmissao): void {
 		$this->dataEmissao = $dataEmissao;
 	}
-	
+
 	public function getDataOperacao(): \DateTime {
 		return $this->dataOperacao;
 	}
-	
+
 	public function setDataOperacao(\DateTime $dataOperacao): void {
 		$this->dataOperacao = $dataOperacao;
 	}
-	
+
 	public function getNaturezaOperacao(): NaturezaOperacao {
 		return $this->naturezaOperacao;
 	}
-	
+
 	public function setNaturezaOperacao(NaturezaOperacao $naturezaOperacao): void {
 		$this->naturezaOperacao = $naturezaOperacao;
 	}
-	
+
 	public function getLoja(): Loja {
 		return $this->loja;
 	}
-	
+
 	public function setLoja(Loja $loja): void {
 		$this->loja = $loja;
 	}
-	
+
 	public function getFinalidade(): Finalidade {
 		return $this->finalidade;
 	}
-	
+
 	public function setFinalidade(Finalidade $finalidade): void {
 		$this->finalidade = $finalidade;
 	}
-	
+
 	public function getSeguro(): float {
 		return $this->seguro;
 	}
-	
+
 	public function setSeguro(float $seguro): void {
 		$this->seguro = $seguro;
 	}
-	
+
 	public function getDespesas(): float {
 		return $this->despesas;
 	}
-	
+
 	public function setDespesas(float $despesas): void {
 		$this->despesas = $despesas;
 	}
-	
+
 	public function getDesconto(): float {
 		return $this->desconto;
 	}
-	
+
 	public function setDesconto(float $desconto): void {
 		$this->desconto = $desconto;
 	}
-	
+
 	public function getObservacoes(): string {
 		return $this->observacoes;
 	}
-	
+
 	public function setObservacoes(string $observacoes): void {
 		$this->observacoes = $observacoes;
 	}
-	
+
 	public function getChaveAcesso(): string {
 		return $this->chaveAcesso;
 	}
-	
+
 	public function setChaveAcesso(string $chaveAcesso): void {
 		$this->chaveAcesso = $chaveAcesso;
 	}
-	
+
 	public function getXml(): string {
 		return $this->xml;
 	}
-	
+
 	public function setXml(string $xml): void {
 		$this->xml = $xml;
 	}
-	
+
 	public function getLinkDanfe(): string {
 		return $this->linkDanfe;
 	}
-	
+
 	public function setLinkDanfe(string $linkDanfe): void {
 		$this->linkDanfe = $linkDanfe;
 	}
-	
+
 	public function getLinkPDF(): string {
 		return $this->linkPDF;
 	}
-	
+
 	public function setLinkPDF(string $linkPDF): void {
 		$this->linkPDF = $linkPDF;
 	}
-	
+
 	public function getDocumentoReferenciado(): DocumentoReferenciado {
 		return $this->documentoReferenciado;
 	}
-	
+
 	public function setDocumentoReferenciado(DocumentoReferenciado $documentoReferenciado): void {
 		$this->documentoReferenciado = $documentoReferenciado;
 	}
-	
-	public function getItens(): array {
+
+	public function getItens(): Collection {
 		return $this->itens;
 	}
-	
-	public function setItens(array $itens): void {
+
+	public function setItens(Collection $itens): void {
 		$this->itens = $itens;
 	}
-	
-	public function getParcelas(): array {
+
+	public function getParcelas(): Collection {
 		return $this->parcelas;
 	}
-	
-	public function setParcelas(array $parcelas): void {
+
+	public function setParcelas(Collection $parcelas): void {
 		$this->parcelas = $parcelas;
 	}
-	
+
 	public function getTransporte(): Transport {
 		return $this->transporte;
 	}
-	
+
 	public function setTransporte(Transport $transporte): void {
 		$this->transporte = $transporte;
 	}
-	
+
 	public function getNotaFiscalProdutorRuralReferenciada(): NotaFiscalProdutorRuralReferenciada {
 		return $this->notaFiscalProdutorRuralReferenciada;
 	}
-	
+
 	public function setNotaFiscalProdutorRuralReferenciada(NotaFiscalProdutorRuralReferenciada $notaFiscalProdutorRuralReferenciada): void {
 		$this->notaFiscalProdutorRuralReferenciada = $notaFiscalProdutorRuralReferenciada;
 	}
-	
+
 	public function getIntermediador(): Intermediador {
 		return $this->intermediador;
 	}
-	
+
 	public function setIntermediador(Intermediador $intermediador): void {
 		$this->intermediador = $intermediador;
 	}
-	
+
 	public function jsonSerialize() {
 		$vars = [];
 		if (null != $this->id) {
@@ -382,7 +390,7 @@ class Nfe implements \JsonSerializable {
 		if (null != $this->notaFiscalProdutorRuralReferenciada) {
 			$vars['notaFiscalProdutorRuralReferenciada'] = $this->notaFiscalProdutorRuralReferenciada->jsonSerialize();
 		}
-		
+
 		return $vars;
 	}
 }

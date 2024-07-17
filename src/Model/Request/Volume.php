@@ -2,73 +2,78 @@
 
 namespace Eloom\SdkBling\Model\Request;
 
-class Volume implements \JsonSerializable {
-	
+class Volume implements \JsonSerializable
+{
+
 	/**
 	 * @var integer
 	 */
 	private $quantidade;
-	
+
 	/**
 	 * @var string
 	 */
 	private $especie;
-	
+
 	/**
 	 * @var string
 	 */
 	private $numero;
-	
+
 	/**
 	 * @var float
 	 */
 	private $pesoBruto;
-	
+
 	/**
 	 * @var float
 	 */
 	private $pesoLiquido;
-	
+
+	public static function of(): Volume {
+		return new Volume();
+	}
+
 	public function getQuantidade(): int {
 		return $this->quantidade;
 	}
-	
+
 	public function setQuantidade(int $quantidade): void {
 		$this->quantidade = $quantidade;
 	}
-	
+
 	public function getEspecie(): string {
 		return $this->especie;
 	}
-	
+
 	public function setEspecie(string $especie): void {
 		$this->especie = $especie;
 	}
-	
+
 	public function getNumero(): string {
 		return $this->numero;
 	}
-	
+
 	public function setNumero(string $numero): void {
 		$this->numero = $numero;
 	}
-	
+
 	public function getPesoBruto(): float {
 		return $this->pesoBruto;
 	}
-	
+
 	public function setPesoBruto(float $pesoBruto): void {
 		$this->pesoBruto = $pesoBruto;
 	}
-	
+
 	public function getPesoLiquido(): float {
 		return $this->pesoLiquido;
 	}
-	
+
 	public function setPesoLiquido(float $pesoLiquido): void {
 		$this->pesoLiquido = $pesoLiquido;
 	}
-	
+
 	public function jsonSerialize() {
 		$vars = [];
 		if (null != $this->quantidade) {
@@ -86,7 +91,7 @@ class Volume implements \JsonSerializable {
 		if (null != $this->pesoLiquido) {
 			$vars['pesoLiquido'] = round($this->pesoLiquido, 2);
 		}
-		
+
 		return $vars;
 	}
 }

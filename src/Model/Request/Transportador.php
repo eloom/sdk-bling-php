@@ -2,60 +2,65 @@
 
 namespace Eloom\SdkBling\Model\Request;
 
-class Transportador implements \JsonSerializable {
-	
+class Transportador implements \JsonSerializable
+{
+
 	/**
 	 * @var string
 	 */
 	private $nome;
-	
+
 	/**
 	 * @var string
 	 */
 	private $numeroDocumento;
-	
+
 	/**
 	 * @var string
 	 */
 	private $ie;
-	
+
 	/**
 	 * @var Endereco
 	 */
 	private $endereco;
-	
+
+	public static function of(): Transportador {
+		return new Transportador();
+	}
+
 	public function getNome(): string {
 		return $this->nome;
 	}
-	
+
 	public function setNome(string $nome): void {
 		$this->nome = $nome;
 	}
-	
+
 	public function getNumeroDocumento(): string {
 		return $this->numeroDocumento;
 	}
-	
+
 	public function setNumeroDocumento(string $numeroDocumento): void {
 		$this->numeroDocumento = $numeroDocumento;
 	}
-	
+
 	public function getIe(): string {
 		return $this->ie;
 	}
-	
+
 	public function setIe(string $ie): void {
 		$this->ie = $ie;
 	}
-	
+
 	public function getEndereco(): Endereco {
 		return $this->endereco;
 	}
-	
+
 	public function setEndereco(Endereco $endereco): void {
 		$this->endereco = $endereco;
 	}
-	
+
 	public function jsonSerialize() {
 		$vars = [];
 		if (null != $this->nome) {
@@ -70,7 +75,7 @@ class Transportador implements \JsonSerializable {
 		if (null != $this->endereco) {
 			$vars['endereco'] = $this->endereco->jsonSerialize();
 		}
-		
+
 		return $vars;
 	}
 }
