@@ -106,7 +106,7 @@ class Nfe implements \JsonSerializable {
 	private $parcelas;
 
 	/**
-	 * @var Transport
+	 * @var Transporte
 	 */
 	private $transporte;
 
@@ -322,15 +322,15 @@ class Nfe implements \JsonSerializable {
 		$this->parcelas = $parcelas;
 	}
 
-	public function getTransporte(): Transport {
+	public function getTransporte(): Transporte {
 		if (null == $this->transporte) {
-			$this->transporte = Transport::of();
+			$this->transporte = Transporte::of();
 		}
 
 		return $this->transporte;
 	}
 
-	public function setTransporte(Transport $transporte): void {
+	public function setTransporte(Transporte $transporte): void {
 		$this->transporte = $transporte;
 	}
 
