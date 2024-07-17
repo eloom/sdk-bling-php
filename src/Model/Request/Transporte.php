@@ -99,6 +99,10 @@ class Transporte implements \JsonSerializable {
 	}
 
 	public function getVolumes(): Collection {
+		if (null == $this->volumes) {
+			$this->volumes = new Collection([]);
+		}
+		
 		return $this->volumes;
 	}
 
