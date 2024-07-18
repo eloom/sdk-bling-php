@@ -20,6 +20,4 @@ class TipoPessoa extends BaseEnum {
 	 * Estrangeiro
 	 */
 	const ESTRANGEIRO = 'E';
-	
-	
 }

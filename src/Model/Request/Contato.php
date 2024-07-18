@@ -17,7 +17,7 @@ class Contato implements \JsonSerializable {
 	private $nome;
 
 	/**
-	 * @var TipoPessoa
+	 * @var string
 	 */
 	private $tipoPessoa;
 
@@ -81,11 +81,11 @@ class Contato implements \JsonSerializable {
 		$this->nome = $nome;
 	}
 
-	public function getTipoPessoa(): TipoPessoa {
+	public function getTipoPessoa(): string {
 		return $this->tipoPessoa;
 	}
 
-	public function setTipoPessoa(TipoPessoa $tipoPessoa): void {
+	public function setTipoPessoa(string $tipoPessoa): void {
 		$this->tipoPessoa = $tipoPessoa;
 	}
 
