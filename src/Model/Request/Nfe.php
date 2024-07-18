@@ -120,6 +120,11 @@ class Nfe implements \JsonSerializable {
 	 */
 	private $intermediador;
 
+	/**
+	 * @var Contato
+	 */
+	private $contato;
+
 	public static function of(): Nfe {
 		return new Nfe();
 	}
@@ -358,6 +363,18 @@ class Nfe implements \JsonSerializable {
 		$this->intermediador = $intermediador;
 	}
 
+	public function getContato(): Contato {
+		if (null == $this->contato) {
+			$this->contato = Contato::of();
+		}
+
+		return $this->contato;
+	}
+
+	public function setContato(Contato $contato): void {
+		$this->contato = $contato;
+	}
+
 	public function jsonSerialize() {
 		$vars = [];
 		if (null != $this->id) {
@@ -425,6 +442,9 @@ class Nfe implements \JsonSerializable {
 		}
 		if (null != $this->notaFiscalProdutorRuralReferenciada) {
 			$vars['notaFiscalProdutorRuralReferenciada'] = $this->notaFiscalProdutorRuralReferenciada->jsonSerialize();
+		}
+		if (null != $this->contato) {
+			$vars['contato'] = $this->contato->jsonSerialize();
 		}
 
 		return $vars;

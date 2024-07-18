@@ -137,11 +137,15 @@ class Contato implements \JsonSerializable {
 		$this->email = $email;
 	}
 
-	public function getEndereco(): \Eloom\SdkBling\Model\Request\Endereco {
+	public function getEndereco(): Endereco {
+		if (null == $this->endereco) {
+			$this->endereco = Endereco::of();
+		}
+
 		return $this->endereco;
 	}
 
-	public function setEndereco(\Eloom\SdkBling\Model\Request\Endereco $endereco): void {
+	public function setEndereco(Endereco $endereco): void {
 		$this->endereco = $endereco;
 	}
 
@@ -164,9 +168,6 @@ class Contato implements \JsonSerializable {
 		}
 		if (null != $this->rg) {
 			$vars['rg'] = $this->rg;
-		}
-		if (null != $this->data) {
-			$vars['data'] = $this->data;
 		}
 		if (null != $this->contribuinte) {
 			$vars['contribuinte'] = intval($this->contribuinte);
