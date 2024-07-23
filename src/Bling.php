@@ -24,30 +24,25 @@ class Bling {
 
 	protected $urlApi = 'https://www.bling.com.br';
 
-	public static function of(string $clientId = null, string $secretKey = null, string $accessToken = null): Bling {
+	public function __construct() {
+
+	}
+
+	public static function of(string $clientId = null, string $secretKey = null): Bling {
 		$instance = new Bling();
-		if (null != $clientId) {
+		if (null != $clientId && null != $secretKey) {
 			$instance->setClientId($clientId);
-		}
-		if (null != $secretKey) {
 			$instance->setSecretKey($secretKey);
-		}
-		if(null != $accessToken) {
-			$instance->setAccessToken($accessToken);
-		}
 
-		$config = ['base_uri' => $instance->getUrlApi(),
-							 'headers' => ['Accept' => 'application/json', 'Content-Type' => 'application/json']
-		];
+			$config = ['base_uri' => $instance->getUrlApi(),
+				'headers' => ['Accept' => 'application/json', 'Content-Type' => 'application/json']
+			];
 
-		if (null != $instance->getAccessToken()) {
-			$config['headers']['Authorization'] = 'Bearer ' . $instance->getAccessToken();
-		} else {
 			$config['headers']['Authorization'] = 'Basic ' . base64_encode($instance->getClientId() . ':' . $instance->getSecretKey());
-		}
 
-		$apiClient = new RestClientApi($config);
-		$instance->setApiClient($apiClient);
+			$apiClient = new RestClientApi($config);
+			$instance->setApiClient($apiClient);
+		}
 
 		return $instance;
 	}
@@ -64,38 +59,29 @@ class Bling {
 		}
 	}
 
-	public function requestToken(string $code): RestClientApi {
-		if (null == $this->getAccessToken()) {
-			$config = ['base_uri' => $this->getUrlApi(),
-				'headers' => ['Accept' => 'application/json', 'Content-Type' => 'application/json']
-			];
+	public function requestToken(string $code): \stdClass {
+		$config = ['base_uri' => $this->getUrlApi(),
+			'headers' => ['Accept' => 'application/json', 'Content-Type' => 'application/json']
+		];
 
-			$config['headers']['Authorization'] = 'Bearer ' . $this->getAccessToken();
+		$apiClient = new RestClientApi($config);
 
-			$apiClient = new RestClientApi($config);
-			$this->setApiClient($apiClient);
-			$this->setAccessToken($code);
-		}
-
-		return $this->apiClient;
+		return $apiClient->request("POST", "oauth/token", ['json' => [
+			'grant_type' => 'authorization_code',
+			'code' => $code]])->getResponse();
 	}
 
-	public function refreshToken($refreshToken) {
-		return $this->requestoOrRefreshToken(null, $refreshToken);
-	}
+	public function refreshToken($refreshToken): \stdClass {
+		$config = ['base_uri' => $this->getUrlApi(),
+			'headers' => ['Accept' => 'application/json', 'Content-Type' => 'application/json']
+		];
 
-	protected function requestoOrRefreshToken($code = null, $refreshToken = null): \stdClass {
-		$payload = [];
+		$apiClient = new RestClientApi($config);
 
-		if ($refreshToken) {
-			$payload["grant_type"] = "refresh_token";
-			$payload["refresh_token"] = $refreshToken;
-		} else {
-			$payload["grant_type"] = "authorization_code";
-			$payload["code"] = $code;
-		}
-
-		return $this->getApiClient()->request("POST", "oauth/token", ['json' => $payload])->getResponse();
+		return $apiClient->request("POST", "oauth/token", ['json' => [
+			'grant_type' => 'refresh_token',
+			'refresh_token' => $refreshToken
+		]])->getResponse();
 	}
 
 	public function products(): Service\ProdutosService {
