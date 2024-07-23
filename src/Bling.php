@@ -60,7 +60,7 @@ class Bling {
 			'headers' => ['Accept' => 'application/json', 'Content-Type' => 'application/json']
 		];
 
-		return $this->apiClient->request("POST", "oauth/token", ['json' => [
+		return $this->apiClient->request("POST", "Api/v3/oauth/token", ['json' => [
 			'grant_type' => 'authorization_code',
 			'code' => $code]])->getResponse();
 	}
@@ -70,7 +70,7 @@ class Bling {
 			'headers' => ['Accept' => 'application/json', 'Content-Type' => 'application/json']
 		];
 
-		return $this->apiClient->request("POST", "oauth/token", ['json' => [
+		return $this->apiClient->request("POST", "Api/v3/oauth/token", ['json' => [
 			'grant_type' => 'refresh_token',
 			'refresh_token' => $refreshToken
 		]])->getResponse();
