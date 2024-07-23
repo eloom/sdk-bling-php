@@ -11,7 +11,7 @@ class RestClientApi extends Client {
 		parent::__construct($config);
 	}
 
-	public function request(string $method, $uri = '', array $options = []) {
+	public function request($method, $uri = '', array $options = []) {
 		try {
 			return parent::request($method, $uri, $options);
 
