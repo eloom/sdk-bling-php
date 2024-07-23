@@ -24,10 +24,6 @@ class Bling {
 
 	protected $urlApi = 'https://www.bling.com.br';
 
-	public function __construct() {
-
-	}
-
 	public static function of(string $clientId = null, string $secretKey = null): Bling {
 		$instance = new Bling();
 		if (null != $clientId && null != $secretKey) {
@@ -64,9 +60,7 @@ class Bling {
 			'headers' => ['Accept' => 'application/json', 'Content-Type' => 'application/json']
 		];
 
-		$apiClient = new RestClientApi($config);
-
-		return $apiClient->request("POST", "oauth/token", ['json' => [
+		return $this->apiClient->request("POST", "oauth/token", ['json' => [
 			'grant_type' => 'authorization_code',
 			'code' => $code]])->getResponse();
 	}
@@ -76,9 +70,7 @@ class Bling {
 			'headers' => ['Accept' => 'application/json', 'Content-Type' => 'application/json']
 		];
 
-		$apiClient = new RestClientApi($config);
-
-		return $apiClient->request("POST", "oauth/token", ['json' => [
+		return $this->apiClient->request("POST", "oauth/token", ['json' => [
 			'grant_type' => 'refresh_token',
 			'refresh_token' => $refreshToken
 		]])->getResponse();
