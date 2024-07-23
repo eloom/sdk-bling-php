@@ -13,3 +13,5 @@ tests/_output
 tests/_support/_generated
 .env.testing
 .run
+.env
+.env

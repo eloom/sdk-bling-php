@@ -5,18 +5,18 @@ namespace Eloom\SdkBling\Service\Traits;
 use Eloom\SdkBling\Util\Collection;
 
 trait Service {
-	public function findAll(int $pagina = 1, int $limite = 100, array $filtros = []): Collection {
+	public function findAll(int $start = 0, int $limit = 100, array $filters = []): Collection {
 		$response = $this->request(
 			'GET',
 			$this->uri,
 			[
 				'query' => [
-						'pagina' => $pagina,
-						'limite' => $limite,
-					] + $filtros
+						'pagina' => $start,
+						'limite' => $limit,
+					] + $filters
 			]
 		)->getResponse();
-		
+
 		return new Collection($response->data ?? []);
 	}
 	

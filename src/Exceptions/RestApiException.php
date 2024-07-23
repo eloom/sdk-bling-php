@@ -25,7 +25,7 @@ class RestApiException extends Exception {
 	}
 	
 	protected function prepareMessage($message): string {
-		$responseContent = $this->response?->getResponse();
+		$responseContent = $this->response ? $this->response->getResponse() : null;
 		if ($responseContent && property_exists($responseContent, 'error') && $responseContent->error) {
 			return $responseContent->error->description ?? $responseContent->error->message ?? $message;
 		}
@@ -34,7 +34,7 @@ class RestApiException extends Exception {
 	}
 	
 	protected function prepareFields() {
-		$responseContent = $this->response?->getResponse();
+		$responseContent = $this->response ? $this->response->getResponse() : null;
 		if ($responseContent && property_exists($responseContent, 'error') && $responseContent->error) {
 			$fields = $responseContent->error->fields ?? [];
 			foreach ($fields as $field) {

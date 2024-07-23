@@ -4,9 +4,9 @@ namespace Eloom\SdkBling\Service;
 
 use Eloom\SdkBling\Service\Traits\Service;
 
-class SituacoesService extends RootService {
+class NaturezaOperacaoService extends RootService {
+
 	use Service;
-	
-	protected $uri = 'situacoes';
-	
+
+	protected $uri = 'Api/v3/naturezas-operacoes';
 }

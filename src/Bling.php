@@ -6,58 +6,87 @@ use Eloom\SdkBling\Client\Response;
 use Eloom\SdkBling\Client\RestClientApi;
 
 class Bling {
-	
+
 	/**
 	 * @var RestClientApi
 	 */
 	protected $apiClient;
-	
+
 	protected $clientId;
-	
+
 	protected $secretKey;
-	
+
 	protected $accessToken;
-	
+
 	protected $urlCallback;
-	
+
 	protected $state;
-	
-	protected $urlApi = 'https://www.bling.com.br/Api/v3';
-	
-	public function __construct(string $clientId, string $secretKey) {
-		$this->clientId = $clientId;
-		$this->secretKey = $secretKey;
+
+	protected $urlApi = 'https://www.bling.com.br';
+
+	public static function of(string $clientId = null, string $secretKey = null, string $accessToken = null): Bling {
+		$instance = new Bling();
+		if (null != $clientId) {
+			$instance->setClientId($clientId);
+		}
+		if (null != $secretKey) {
+			$instance->setSecretKey($secretKey);
+		}
+		if(null != $accessToken) {
+			$instance->setAccessToken($accessToken);
+		}
+
+		$config = ['base_uri' => $instance->getUrlApi(),
+							 'headers' => ['Accept' => 'application/json', 'Content-Type' => 'application/json']
+		];
+
+		if (null != $instance->getAccessToken()) {
+			$config['headers']['Authorization'] = 'Bearer ' . $instance->getAccessToken();
+		} else {
+			$config['headers']['Authorization'] = 'Basic ' . base64_encode($instance->getClientId() . ':' . $instance->getSecretKey());
+		}
+
+		$apiClient = new RestClientApi($config);
+		$instance->setApiClient($apiClient);
+
+		return $instance;
 	}
-	
+
 	public function requestAuthorization($state = null, $permission = null, $redirect = false) {
 		$this->state = $state ?: md5(time());
-		
 		$query = "&state=" . $this->state;
-		
-		if ($this->urlCallback) {
-			$query .= "&redirect_uri=" . $this->urlCallback;
-		}
-		
-		$urlRedirect = $this->getBaseUri("oauth/authorize?client_id={$this->clientId}&response_type=code{$query}&scope={$permission}");
-		
+		$urlRedirect = $this->getBaseUri("Api/v3/oauth/authorize?client_id={$this->clientId}&response_type=code{$query}&scope={$permission}");
+
 		if ($redirect == true) {
 			header("Location: " . $urlRedirect);
 		} else {
 			return $urlRedirect;
 		}
 	}
-	
-	public function requestToken(string $code): \stdClass {
-		return $this->requestoOrRefreshToken($code);
+
+	public function requestToken(string $code): RestClientApi {
+		if (null == $this->getAccessToken()) {
+			$config = ['base_uri' => $this->getUrlApi(),
+				'headers' => ['Accept' => 'application/json', 'Content-Type' => 'application/json']
+			];
+
+			$config['headers']['Authorization'] = 'Bearer ' . $this->getAccessToken();
+
+			$apiClient = new RestClientApi($config);
+			$this->setApiClient($apiClient);
+			$this->setAccessToken($code);
+		}
+
+		return $this->apiClient;
 	}
-	
+
 	public function refreshToken($refreshToken) {
 		return $this->requestoOrRefreshToken(null, $refreshToken);
 	}
-	
+
 	protected function requestoOrRefreshToken($code = null, $refreshToken = null): \stdClass {
 		$payload = [];
-		
+
 		if ($refreshToken) {
 			$payload["grant_type"] = "refresh_token";
 			$payload["refresh_token"] = $refreshToken;
@@ -65,105 +94,173 @@ class Bling {
 			$payload["grant_type"] = "authorization_code";
 			$payload["code"] = $code;
 		}
-		
+
 		return $this->getApiClient()->request("POST", "oauth/token", ['json' => $payload])->getResponse();
 	}
-	
+
 	public function products(): Service\ProdutosService {
 		return new Service\ProdutosService($this->getApiClient());
 	}
-	
+
 	public function categories(): Service\CategoriasProdutosService {
 		return new Service\CategoriasProdutosService($this->getApiClient());
 	}
-	
+
 	public function orders(): Service\PedidosVendasService {
 		return new Service\PedidosVendasService($this->getApiClient());
 	}
-	
+
 	public function nfce(): Service\NfceService {
 		return new Service\NfceService($this->getApiClient());
 	}
-	
+
+	public function nfe(): Service\NfeService {
+		return new Service\NfeService($this->getApiClient());
+	}
+
+	public function naturezaOperacoes(): Service\NaturezaOperacaoService {
+		return new Service\NaturezaOperacaoService($this->getApiClient());
+	}
+
 	public function stock(): Service\EstoquesService {
 		return new Service\EstoquesService($this->getApiClient());
 	}
-	
+
 	public function contacts(): Service\ContatosService {
 		return new Service\ContatosService($this->getApiClient());
 	}
-	
+
 	public function contactTypes(): Service\ContatosTiposService {
 		return new Service\ContatosTiposService($this->getApiClient());
 	}
-	
+
 	public function deposits(): Service\DepositosService {
 		return new Service\DepositosService($this->getApiClient());
 	}
-	
+
 	public function situations(): Service\SituacoesService {
 		return new Service\SituacoesService($this->getApiClient());
 	}
-	
+
 	public function accountsReceive(): Service\ContasReceberService {
 		return new Service\ContasReceberService($this->getApiClient());
 	}
-	
+
 	public function modulesSituations(): Service\SituacoesModulos {
 		return new Service\SituacoesModulos($this->getApiClient());
 	}
-	
+
 	public function paymentMethods(): Service\FormasPagamentosService {
 		return new Service\FormasPagamentosService($this->getApiClient());
 	}
-	
+
 	protected function getApiClient() {
-		$this->apiClient = new RestClientApi([
-			'client_id' => $this->clientId,
-			'secret_key' => $this->secretKey,
-			'access_token' => $this->accessToken,
-			'base_uri' => $this->getBaseUri(),
-		]);
-		
 		return $this->apiClient;
 	}
-	
+
 	public function getBaseUri($path = null) {
 		if ($path === null) {
 			return rtrim($this->urlApi, '/') . '/';
 		}
-		
+
 		return rtrim($this->urlApi, '/') . '/' . ltrim($path, '/') . '/';
 	}
-	
+
 	/**
 	 * @param RestClientApi $apiClient
 	 */
 	public function setApiClient(RestClientApi $apiClient): void {
 		$this->apiClient = $apiClient;
 	}
-	
+
 	public function request(string $method, string $uri, array $options = []): Response {
 		return $this->getApiClient()->request($method, $uri, $options);
 	}
-	
-	public function setClientId($clientId) {
+
+	public function setClientId($clientId): Bling {
 		$this->clientId = $clientId;
+
 		return $this;
 	}
-	
-	public function setSecretKey($secretKey) {
+
+	public function setSecretKey($secretKey): Bling {
 		$this->secretKey = $secretKey;
+
 		return $this;
 	}
-	
-	public function setCallbackURL($url) {
+
+	public function setCallbackURL($url): Bling {
 		$this->urlCallback = $url;
+
 		return $this;
 	}
-	
-	public function setAccessToken($token) {
+
+	public function setAccessToken($token): Bling {
 		$this->accessToken = $token;
+
 		return $this;
+	}
+
+	/**
+	 * @param mixed $urlCallback
+	 */
+	public function setUrlCallback($urlCallback): Bling {
+		$this->urlCallback = $urlCallback;
+
+		return $this;
+	}
+
+	/**
+	 * @param mixed $state
+	 */
+	public function setState($state): Bling {
+		$this->state = $state;
+
+		return $this;
+	}
+
+	public function setUrlApi(string $urlApi): Bling {
+		$this->urlApi = $urlApi;
+
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getClientId(): string {
+		return $this->clientId;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getSecretKey(): string {
+		return $this->secretKey;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getAccessToken(): ?string {
+		return $this->accessToken;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getUrlCallback(): string {
+		return $this->urlCallback;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getState(): string {
+		return $this->state;
+	}
+
+	public function getUrlApi(): string {
+		return $this->urlApi;
 	}
 }

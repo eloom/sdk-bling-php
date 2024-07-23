@@ -2,8 +2,13 @@
 
 namespace Eloom\SdkBling\Service;
 
+use Eloom\SdkBling\Service\Traits\Service;
+
 class NfeService extends RootService {
-	protected $uri = 'nfe';
+
+	use Service;
+
+	protected $uri = 'Api/v3/nfe';
 	
 	public function create(array $data) {
 		$response = $this->request('POST', $this->uri, [

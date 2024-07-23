@@ -1,0 +1,12 @@
+# Codeception Test Suite Configuration
+#
+# Suite for Unit or integration tests.
+
+actor: UnitTester
+modules:
+    enabled:
+        - PhpBrowser:
+            url: http://localhost
+        - Asserts
+        - \Helper\Unit
+    step_decorators: ~        
