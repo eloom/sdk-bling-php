@@ -55,25 +55,21 @@ class Bling {
 		}
 	}
 
-	public function requestToken(string $code): \stdClass {
-		$config = ['base_uri' => $this->getUrlApi(),
-			'headers' => ['Accept' => 'application/json', 'Content-Type' => 'application/json']
-		];
-
-		return $this->apiClient->request("POST", "Api/v3/oauth/token", ['json' => [
+	public function requestToken(string $code) {
+		$response = $this->apiClient->request("POST", "Api/v3/oauth/token", ['json' => [
 			'grant_type' => 'authorization_code',
 			'code' => $code]])->getResponse();
+
+		return $response->data ?? null;
 	}
 
-	public function refreshToken($refreshToken): \stdClass {
-		$config = ['base_uri' => $this->getUrlApi(),
-			'headers' => ['Accept' => 'application/json', 'Content-Type' => 'application/json']
-		];
-
-		return $this->apiClient->request("POST", "Api/v3/oauth/token", ['json' => [
+	public function refreshToken($refreshToken) {
+		$response = $this->apiClient->request("POST", "Api/v3/oauth/token", ['json' => [
 			'grant_type' => 'refresh_token',
 			'refresh_token' => $refreshToken
 		]])->getResponse();
+
+		return $response->data ?? null;
 	}
 
 	public function products(): Service\ProdutosService {
