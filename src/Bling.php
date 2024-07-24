@@ -33,8 +33,8 @@ class Bling {
 		}
 
 		if (null != $accessToken) {
-			$instance->setAccessToken($accessToken);
-			$config['headers']['Authorization'] = 'Bearer ' . $instance->getAccessToken();
+			//$instance->setAccessToken($accessToken);
+			//$config['headers']['Authorization'] = 'Bearer ' . $instance->getAccessToken();
 		}
 
 		$config = ['base_uri' => $instance->getUrlApi(),
