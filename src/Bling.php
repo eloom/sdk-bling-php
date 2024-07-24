@@ -22,9 +22,11 @@ class Bling {
 
 	protected $state;
 
-	protected $urlApi = 'https://www.bling.com.br';
+	protected $urlApi = 'https://bling.com.br';
 
 	public static function of(string $clientId = null, string $secretKey = null, string $accessToken = null): Bling {
+
+		$config = [];
 		$instance = new Bling();
 		if (null != $clientId && null != $secretKey) {
 			$instance->setClientId($clientId);
@@ -33,13 +35,13 @@ class Bling {
 		}
 
 		if (null != $accessToken) {
-			//$instance->setAccessToken($accessToken);
-			//$config['headers']['Authorization'] = 'Bearer ' . $instance->getAccessToken();
+			$instance->setAccessToken($accessToken);
+			$config['headers']['Authorization'] = 'Bearer ' . $instance->getAccessToken();
 		}
 
-		$config = ['base_uri' => $instance->getUrlApi(),
-			'headers' => ['Accept' => 'application/json', 'Content-Type' => 'application/json']
-		];
+		$config['headers']['Accept'] = 'application/json';
+		$config['headers']['Content-Type'] = 'application/json';
+		$config['base_uri'] = $instance->getUrlApi();
 
 		$apiClient = new RestClientApi($config);
 		$instance->setApiClient($apiClient);
@@ -64,18 +66,22 @@ class Bling {
 	public function requestToken(string $code) {
 		$response = $this->apiClient->request("POST", "Api/v3/oauth/token", ['json' => [
 			'grant_type' => 'authorization_code',
-			'code' => $code]])->getResponse();
+			'code' => $code]]);
 
-		return $response->data ?? null;
+		// FIXME: testar status code
+		//$code = $response->getStatusCode();
+		return $response->getBody()->getContents();
 	}
 
 	public function refreshToken($token) {
 		$response = $this->apiClient->request("POST", "Api/v3/oauth/token", ['json' => [
 			'grant_type' => 'refresh_token',
 			'refresh_token' => $token
-		]])->getResponse();
+		]]);
 
-		return $response->data ?? null;
+		// FIXME: testar status code
+		//$code = $response->getStatusCode();
+		return $response->getBody()->getContents();
 	}
 
 	public function products(): Service\ProdutosService {
