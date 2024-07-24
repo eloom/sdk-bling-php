@@ -45,13 +45,19 @@ class Bling {
 
 	public function requestAuthorization($state = null, $permission = null, $redirect = false) {
 		$this->state = $state ?: md5(time());
-		$query = "&state=" . $this->state;
-		$urlRedirect = $this->getBaseUri("Api/v3/oauth/authorize?client_id={$this->clientId}&response_type=code{$query}&scope={$permission}");
+
+		$response = $this->apiClient->request("GET", "Api/v3/oauth/authorize", [
+			'query' => http_build_query(['client_id' => $this->getClientId(),
+				'response_type' => 'code',
+				'state' => $this->state,
+				'scope' => $permission])]);
+
+		$content = $response->getBody()->getContents();
 
 		if ($redirect == true) {
-			header("Location: " . $urlRedirect);
+			header("Location: " . $content);
 		} else {
-			return $urlRedirect;
+			return $content;
 		}
 	}
 
