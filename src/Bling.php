@@ -24,33 +24,37 @@ class Bling {
 
 	protected $urlApi = 'https://www.bling.com.br';
 
-	public static function of(string $clientId = null, string $secretKey = null): Bling {
+	public static function of(string $clientId = null, string $secretKey = null, string $accessToken = null): Bling {
 		$instance = new Bling();
 		if (null != $clientId && null != $secretKey) {
 			$instance->setClientId($clientId);
 			$instance->setSecretKey($secretKey);
-
-			$config = ['base_uri' => $instance->getUrlApi(),
-				'headers' => ['Accept' => 'application/json', 'Content-Type' => 'application/json']
-			];
-
 			$config['headers']['Authorization'] = 'Basic ' . base64_encode($instance->getClientId() . ':' . $instance->getSecretKey());
-
-			$apiClient = new RestClientApi($config);
-			$instance->setApiClient($apiClient);
 		}
+
+		if (null != $accessToken) {
+			$instance->setAccessToken($accessToken);
+			$config['headers']['Authorization'] = 'Bearer ' . $instance->getAccessToken();
+		}
+
+		$config = ['base_uri' => $instance->getUrlApi(),
+			'headers' => ['Accept' => 'application/json', 'Content-Type' => 'application/json']
+		];
+
+		$apiClient = new RestClientApi($config);
+		$instance->setApiClient($apiClient);
 
 		return $instance;
 	}
 
-	public function requestAuthorization($state = null, $permission = null) {
+	public function requestAuthorization($state = null, $scope = null) {
 		$this->state = $state ?: md5(time());
 
 		$response = $this->apiClient->request("GET", "Api/v3/oauth/authorize", [
 			'query' => http_build_query(['client_id' => $this->getClientId(),
 				'response_type' => 'code',
 				'state' => $this->state,
-				'scope' => $permission])]);
+				'scope' => $scope])]);
 
 		// FIXME: testar status code
 		//$code = $response->getStatusCode();
