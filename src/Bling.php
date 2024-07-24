@@ -52,36 +52,24 @@ class Bling {
 	public function requestAuthorization($state = null, $scope = null) {
 		$this->state = $state ?: md5(time());
 
-		$response = $this->apiClient->request("GET", "Api/v3/oauth/authorize", [
+		return $this->apiClient->request("GET", "Api/v3/oauth/authorize", [
 			'query' => http_build_query(['client_id' => $this->getClientId(),
 				'response_type' => 'code',
 				'state' => $this->state,
-				'scope' => $scope])]);
-
-		// FIXME: testar status code
-		//$code = $response->getStatusCode();
-		return $response->getBody()->getContents();
+				'scope' => $scope])])->getResponse();
 	}
 
 	public function requestToken(string $code) {
-		$response = $this->apiClient->request("POST", "Api/v3/oauth/token", ['json' => [
+		return $this->apiClient->request("POST", "Api/v3/oauth/token", ['json' => [
 			'grant_type' => 'authorization_code',
-			'code' => $code]]);
-
-		// FIXME: testar status code
-		//$code = $response->getStatusCode();
-		return $response->getBody()->getContents();
+			'code' => $code]])->getResponse();
 	}
 
 	public function refreshToken($token) {
-		$response = $this->apiClient->request("POST", "Api/v3/oauth/token", ['json' => [
+		return $this->apiClient->request("POST", "Api/v3/oauth/token", ['json' => [
 			'grant_type' => 'refresh_token',
 			'refresh_token' => $token
-		]]);
-
-		// FIXME: testar status code
-		//$code = $response->getStatusCode();
-		return $response->getBody()->getContents();
+		]])->getResponse();
 	}
 
 	public function products(): Service\ProdutosService {
