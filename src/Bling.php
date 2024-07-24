@@ -69,10 +69,10 @@ class Bling {
 		return $response->data ?? null;
 	}
 
-	public function refreshToken($refreshToken) {
+	public function refreshToken($token) {
 		$response = $this->apiClient->request("POST", "Api/v3/oauth/token", ['json' => [
 			'grant_type' => 'refresh_token',
-			'refresh_token' => $refreshToken
+			'refresh_token' => $token
 		]])->getResponse();
 
 		return $response->data ?? null;
