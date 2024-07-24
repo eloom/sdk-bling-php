@@ -43,7 +43,7 @@ class Bling {
 		return $instance;
 	}
 
-	public function requestAuthorization($state = null, $permission = null, $redirect = false) {
+	public function requestAuthorization($state = null, $permission = null) {
 		$this->state = $state ?: md5(time());
 
 		$response = $this->apiClient->request("GET", "Api/v3/oauth/authorize", [
@@ -52,13 +52,9 @@ class Bling {
 				'state' => $this->state,
 				'scope' => $permission])]);
 
-		$content = $response->getBody()->getContents();
-
-		if ($redirect == true) {
-			header("Location: " . $content);
-		} else {
-			return $content;
-		}
+		// FIXME: testar status code
+		//$code = $response->getStatusCode();
+		return $response->getBody()->getContents();
 	}
 
 	public function requestToken(string $code) {
