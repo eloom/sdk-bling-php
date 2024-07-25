@@ -131,8 +131,8 @@ class Nfe implements \JsonSerializable {
 
 	public static function build(): Nfe {
 		$instance = Nfe::of();
-		$instance->setItens(new Collection());
-		$instance->setParcelas(new Collection());
+		$instance->setItens(new Collection([]));
+		$instance->setParcelas(new Collection([]));
 
 		return $instance;
 	}
