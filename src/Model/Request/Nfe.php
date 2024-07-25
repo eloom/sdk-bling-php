@@ -431,11 +431,31 @@ class Nfe implements \JsonSerializable {
 		if (null != $this->documentoReferenciado) {
 			$vars['documentoReferenciado'] = $this->documentoReferenciado->jsonSerialize();
 		}
-		if (null != $this->itens && $this->itens.count() > 0) {
-			$vars['itens'] = $this->itens->toArray();
+		if (null != $this->itens) {
+			$itens = $this->itens->toArray();
+			$data = [];
+
+			if ($itens && is_array($itens)) {
+				foreach ($itens as $item) {
+					$data[] = $item->jsonSerialize();
+				}
+			}
+			if(count($data)) {
+				$vars['itens'] = $data;
+			}
 		}
-		if (null != $this->parcelas && $this->parcelas.count() > 0) {
-			$vars['parcelas'] = $this->parcelas->toArray();
+		if (null != $this->parcelas) {
+			$parcelas = $this->parcelas->toArray();
+			$data = [];
+
+			if ($parcelas && is_array($parcelas)) {
+				foreach ($parcelas as $parcela) {
+					$data[] = $parcela->jsonSerialize();
+				}
+			}
+			if(count($data)) {
+				$vars['parcelas'] = $data;
+			}
 		}
 		if (null != $this->transporte) {
 			$vars['transporte'] = $this->transporte->jsonSerialize();
