@@ -123,7 +123,7 @@ class Transporte implements \JsonSerializable {
 	}
 
 	public function getEtiqueta(): Etiqueta {
-		if(null != $this->etiqueta) {
+		if(null == $this->etiqueta) {
 			$this->etiqueta = Etiqueta::of();
 		}
 
