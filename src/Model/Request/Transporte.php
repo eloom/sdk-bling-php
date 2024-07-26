@@ -148,6 +148,9 @@ class Transporte implements \JsonSerializable {
 		if (null != $this->transportador) {
 			$vars['transportador'] = $this->transportador->jsonSerialize();
 		}
+		if (null != $this->etiqueta) {
+			$vars['etiqueta'] = $this->etiqueta->jsonSerialize();
+		}
 
 		return $vars;
 	}
