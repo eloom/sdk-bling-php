@@ -45,5 +45,5 @@ class FormasPagamentosService extends RootService {
 		2 => 'POS'
 	];
 	
-	protected $uri = 'formas-pagamentos';
+	protected $uri = 'Api/v3/formas-pagamentos';
 }
