@@ -2,7 +2,7 @@
 
 namespace Eloom\SdkBling\Model\Request;
 
-class NotasFiscaisTransporteVolumePost implements \JsonSerializable {
+class NotasFiscaisTransporteVolume implements \JsonSerializable {
 
 	/**
 	 * @var string
@@ -14,8 +14,8 @@ class NotasFiscaisTransporteVolumePost implements \JsonSerializable {
 	 */
 	private $codigoRastreamento;
 
-	public static function of(): NotasFiscaisTransporteVolumePost {
-		return new NotasFiscaisTransporteVolumePost();
+	public static function of(): NotasFiscaisTransporteVolume {
+		return new NotasFiscaisTransporteVolume();
 	}
 
 	public function getServico(): string {
