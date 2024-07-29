@@ -102,7 +102,7 @@ class Transporte implements \JsonSerializable {
 
 	public function getVolume(): Volume {
 		if(null == $this->volume) {
-			$this->volume = Volume::of();
+			$this->volume = Volume::build();
 		}
 
 		return $this->volume;
