@@ -6,6 +6,8 @@ use Eloom\SdkBling\Util\Collection;
 
 class Transporte implements \JsonSerializable {
 
+	private $tipoFrete;
+
 	private $fretePorConta;
 
 	private $frete;
@@ -134,8 +136,25 @@ class Transporte implements \JsonSerializable {
 		$this->etiqueta = $etiqueta;
 	}
 
+	/**
+	 * @return mixed
+	 */
+	public function getTipoFrete() {
+		return $this->tipoFrete;
+	}
+
+	/**
+	 * @param mixed $tipoFrete
+	 */
+	public function setTipoFrete($tipoFrete): void {
+		$this->tipoFrete = $tipoFrete;
+	}
+
 	public function jsonSerialize() {
 		$vars = [];
+		if (null != $this->tipoFrete) {
+			$vars['tipoFrete'] = $this->tipoFrete;
+		}
 		if (null != $this->fretePorConta) {
 			$vars['fretePorConta'] = $this->fretePorConta;
 		}
