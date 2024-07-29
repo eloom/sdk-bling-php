@@ -170,6 +170,19 @@ class Transporte implements \JsonSerializable {
 		if (null != $this->etiqueta) {
 			$vars['etiqueta'] = $this->etiqueta->jsonSerialize();
 		}
+		if (null != $this->volumes) {
+			$volumes = $this->volumes->toArray();
+			$data = [];
+
+			if ($volumes && is_array($volumes)) {
+				foreach ($volumes as $volume) {
+					$data[] = $volume->jsonSerialize();
+				}
+			}
+			if (count($data)) {
+				$vars['volumes'] = $data;
+			}
+		}
 
 		return $vars;
 	}
