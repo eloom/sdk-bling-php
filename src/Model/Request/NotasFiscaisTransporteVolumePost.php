@@ -2,12 +2,7 @@
 
 namespace Eloom\SdkBling\Model\Request;
 
-class Rastreamento implements \JsonSerializable {
-
-	/**
-	 * @var integer
-	 */
-	private $id;
+class NotasFiscaisTransporteVolumePost implements \JsonSerializable {
 
 	/**
 	 * @var string
@@ -19,16 +14,8 @@ class Rastreamento implements \JsonSerializable {
 	 */
 	private $codigoRastreamento;
 
-	public static function of(): Rastreamento {
-		return new Rastreamento();
-	}
-
-	public function getId(): int {
-		return $this->id;
-	}
-
-	public function setId(int $id): void {
-		$this->id = $id;
+	public static function of(): NotasFiscaisTransporteVolumePost {
+		return new NotasFiscaisTransporteVolumePost();
 	}
 
 	public function getServico(): string {
@@ -49,9 +36,6 @@ class Rastreamento implements \JsonSerializable {
 
 	public function jsonSerialize() {
 		$vars = [];
-		if (null != $this->id) {
-			$vars['id'] = intval($this->id);
-		}
 		if (null != $this->servico) {
 			$vars['servico'] = $this->servico;
 		}
