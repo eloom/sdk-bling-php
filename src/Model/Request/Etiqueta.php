@@ -53,7 +53,7 @@ class Etiqueta implements \JsonSerializable {
 	}
 
 	public function setNome(string $nome): void {
-		$this->nome = $nome;
+		$this->nome = trim($nome);
 	}
 
 	public function getEndereco(): string {
@@ -61,7 +61,7 @@ class Etiqueta implements \JsonSerializable {
 	}
 
 	public function setEndereco(string $endereco): void {
-		$this->endereco = $endereco;
+		$this->endereco = trim($endereco);
 	}
 
 	public function getNumero(): string {
@@ -69,7 +69,7 @@ class Etiqueta implements \JsonSerializable {
 	}
 
 	public function setNumero(string $numero): void {
-		$this->numero = $numero;
+		$this->numero = trim($numero);
 	}
 
 	public function getComplemento(): string {
@@ -77,7 +77,7 @@ class Etiqueta implements \JsonSerializable {
 	}
 
 	public function setComplemento(string $complemento): void {
-		$this->complemento = $complemento;
+		$this->complemento = trim($complemento);
 	}
 
 	public function getMunicipio(): string {
@@ -85,7 +85,7 @@ class Etiqueta implements \JsonSerializable {
 	}
 
 	public function setMunicipio(string $municipio): void {
-		$this->municipio = $municipio;
+		$this->municipio = trim($municipio);
 	}
 
 	public function getUf(): string {
@@ -93,7 +93,7 @@ class Etiqueta implements \JsonSerializable {
 	}
 
 	public function setUf(string $uf): void {
-		$this->uf = $uf;
+		$this->uf = trim($uf);
 	}
 
 	public function getCep(): string {
@@ -101,7 +101,7 @@ class Etiqueta implements \JsonSerializable {
 	}
 
 	public function setCep(string $cep): void {
-		$this->cep = $cep;
+		$this->cep = trim($cep);
 	}
 
 	public function getBairro(): string {
@@ -109,7 +109,7 @@ class Etiqueta implements \JsonSerializable {
 	}
 
 	public function setBairro(string $bairro): void {
-		$this->bairro = $bairro;
+		$this->bairro = trim($bairro);
 	}
 
 	public function jsonSerialize() {
