@@ -55,7 +55,7 @@ class Volume implements \JsonSerializable {
 	}
 
 	public function setEspecie(string $especie): void {
-		$this->especie = $especie;
+		$this->especie = trim($especie);
 	}
 
 	public function getNumero(): string {
@@ -63,7 +63,7 @@ class Volume implements \JsonSerializable {
 	}
 
 	public function setNumero(string $numero): void {
-		$this->numero = $numero;
+		$this->numero = trim($numero);
 	}
 
 	public function getPesoBruto(): float {

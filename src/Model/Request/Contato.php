@@ -78,7 +78,7 @@ class Contato implements \JsonSerializable {
 	}
 
 	public function setNome(string $nome): void {
-		$this->nome = $nome;
+		$this->nome = trim($nome);
 	}
 
 	public function getTipoPessoa(): string {
@@ -86,7 +86,7 @@ class Contato implements \JsonSerializable {
 	}
 
 	public function setTipoPessoa(string $tipoPessoa): void {
-		$this->tipoPessoa = $tipoPessoa;
+		$this->tipoPessoa = trim($tipoPessoa);
 	}
 
 	public function getNumeroDocumento(): string {
@@ -94,7 +94,7 @@ class Contato implements \JsonSerializable {
 	}
 
 	public function setNumeroDocumento(string $numeroDocumento): void {
-		$this->numeroDocumento = $numeroDocumento;
+		$this->numeroDocumento = trim($numeroDocumento);
 	}
 
 	public function getIe(): string {
@@ -102,7 +102,7 @@ class Contato implements \JsonSerializable {
 	}
 
 	public function setIe(string $ie): void {
-		$this->ie = $ie;
+		$this->ie = trim($ie);
 	}
 
 	public function getRg(): string {
@@ -110,7 +110,7 @@ class Contato implements \JsonSerializable {
 	}
 
 	public function setRg(string $rg): void {
-		$this->rg = $rg;
+		$this->rg = trim($rg);
 	}
 
 	public function getContribuinte(): int {
@@ -126,7 +126,7 @@ class Contato implements \JsonSerializable {
 	}
 
 	public function setTelefone(string $telefone): void {
-		$this->telefone = $telefone;
+		$this->telefone = trim($telefone);
 	}
 
 	public function getEmail(): string {
@@ -134,7 +134,7 @@ class Contato implements \JsonSerializable {
 	}
 
 	public function setEmail(string $email): void {
-		$this->email = $email;
+		$this->email = trim($email);
 	}
 
 	public function getEndereco(): Endereco {

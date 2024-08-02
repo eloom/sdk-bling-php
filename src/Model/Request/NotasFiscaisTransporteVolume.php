@@ -23,7 +23,7 @@ class NotasFiscaisTransporteVolume implements \JsonSerializable {
 	}
 
 	public function setServico(string $servico): void {
-		$this->servico = $servico;
+		$this->servico = trim($servico);
 	}
 
 	public function getCodigoRastreamento(): string {
@@ -31,7 +31,7 @@ class NotasFiscaisTransporteVolume implements \JsonSerializable {
 	}
 
 	public function setCodigoRastreamento(string $codigoRastreamento): void {
-		$this->codigoRastreamento = $codigoRastreamento;
+		$this->codigoRastreamento = trim($codigoRastreamento);
 	}
 
 	public function jsonSerialize() {
