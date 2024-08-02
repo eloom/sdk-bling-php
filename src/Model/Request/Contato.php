@@ -134,7 +134,7 @@ class Contato implements \JsonSerializable {
 	}
 
 	public function setEmail(string $email): void {
-		$this->email = trim($email);
+		$this->email = trim(strtolower($email));
 	}
 
 	public function getEndereco(): Endereco {
