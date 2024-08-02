@@ -9,11 +9,10 @@ class TipoNota extends BaseEnum {
 	/**
 	 * Nota de Entrada
 	 */
-	const ENTRADA = 'E';
+	const ENTRADA = 0;
 	
 	/**
 	 * Nota de Saída
 	 */
-	const SAIDA = 'S';
-	
+	const SAIDA = 1;
 }
