@@ -2,41 +2,42 @@
 
 namespace Eloom\SdkBling\Exceptions;
 
-use \Exception;
 use Eloom\SdkBling\Client\Response;
+use Exception;
 
 class RestApiException extends Exception {
-	
+
 	/**
 	 * The server response.
 	 *
 	 * @var Response
 	 */
 	protected $response;
-	
+
 	protected $fields = [];
-	
+
 	public function __construct($message = "", Response $response = null, int $code = 0) {
 		$this->response = $response;
 		$message = $this->prepareMessage($message);
 		$this->prepareFields();
-		
+		$message = $message . (count($this->fields) > 1 ? implode(' | ', $this->fields) : '');
+
 		parent::__construct($message, $response ? $response->getStatusCode() : $code);
 	}
-	
+
 	protected function prepareMessage($message): string {
-		$responseContent = $this->response ? $this->response->getResponse() : null;
-		if ($responseContent && property_exists($responseContent, 'error') && $responseContent->error) {
-			return $responseContent->error->description ?? $responseContent->error->message ?? $message;
+		$content = $this->response ? $this->response->getResponse() : null;
+		if ($content && property_exists($content, 'error') && $content->error) {
+			return $content->error->description ?? $content->error->message ?? $message;
 		}
-		
+
 		return $message;
 	}
-	
+
 	protected function prepareFields() {
-		$responseContent = $this->response ? $this->response->getResponse() : null;
-		if ($responseContent && property_exists($responseContent, 'error') && $responseContent->error) {
-			$fields = $responseContent->error->fields ?? [];
+		$content = $this->response ? $this->response->getResponse() : null;
+		if ($content && property_exists($content, 'error') && $content->error) {
+			$fields = $content->error->fields ?? [];
 			foreach ($fields as $field) {
 				if (is_array($field)) {
 					$field = current($field);
@@ -48,7 +49,7 @@ class RestApiException extends Exception {
 			}
 		}
 	}
-	
+
 	/**
 	 * Get the HTTP response header
 	 *
@@ -56,25 +57,25 @@ class RestApiException extends Exception {
 	public function getResponse(): Response {
 		return $this->response;
 	}
-	
+
 	public function getFields(): array {
 		return $this->fields;
 	}
-	
+
 	public function getFieldsErrorsMessage(): ?string {
 		$fieldsResult = ' ';
-		
+
 		foreach ($this->fields as $field => $data) {
 			$fieldsResult .= $field . ': ' . $data['message'] . ';' . PHP_EOL;
 		}
-		
+
 		return $fieldsResult;
 	}
-	
+
 	public function getErrorMessageCode(): string {
 		return $this->getErrorMessageByCode($this->getCode());
 	}
-	
+
 	/**
 	 * Retorna o response ja tratado
 	 *

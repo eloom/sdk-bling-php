@@ -29,7 +29,6 @@ class RestClientApi extends Client {
 	public function request($method, $uri = '', array $options = []) {
 		try {
 			return parent::request($method, $uri, $options);
-
 		} catch (\Exception $e) {
 			throw new RestApiException(
 				$e->getMessage(),
