@@ -42,7 +42,7 @@ class RestApiException extends Exception {
 				if (is_array($field)) {
 					$field = current($field);
 				}
-				$this->fields[$field->element] = [
+				$this->fields[] = [
 					'message' => $field->msg,
 					'collection' => $field->collection ?? null,
 				];
