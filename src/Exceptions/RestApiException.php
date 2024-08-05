@@ -66,10 +66,11 @@ class RestApiException extends Exception {
 		$message = '';
 
 		if(count($this->fields) > 0) {
-			$message = ' | ';
+			$message = ' [';
 			foreach ($this->fields as $key => $data) {
 				$message .= $data['message'] . ';' . PHP_EOL;
 			}
+			$message .= ']';
 		}
 
 		return $message;
