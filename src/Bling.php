@@ -22,7 +22,7 @@ class Bling {
 
 	protected $state;
 
-	protected $urlApi = 'https://bling.com.br';
+	protected $urlApi = 'https://api.bling.com.br';
 
 	public static function of(string $clientId = null, string $secretKey = null, string $accessToken = null): Bling {
 
