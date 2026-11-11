@@ -1,0 +1,10 @@
+# ContatosSituacoesPostRequest
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**idsContatos** | **int[]** |  | [optional]
+**situacao** | **string** |  | [optional]
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

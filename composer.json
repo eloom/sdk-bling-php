@@ -1,24 +1,39 @@
 {
-  "name": "eloom/sdk-bling-php",
-  "description": "SDK PHP Bling v3",
-  "type": "library",
-  "homepage": "https://github.com/eloom/sdk-bling-php",
-  "require": {
-    "php": "~7.3|~7.4|~8.1|~8.2",
-    "guzzlehttp/guzzle": "^6.5"
-  },
-  "minimum-stability": "dev",
-  "autoload": {
-    "psr-4": {
-      "Eloom\\SdkBling\\": "src/",
-      "Tests\\": "tests/"
+    "name": "eloom/sdk-bling-php",
+    "description": "A sessão abaixo contém a documentação das API's que o Bling disponibiliza.",
+    "keywords": [
+        "openapitools",
+        "openapi-generator",
+        "openapi",
+        "php",
+        "sdk",
+        "rest",
+        "api"
+    ],
+    "homepage": "https://openapi-generator.tech",
+    "license": "unlicense",
+    "authors": [
+        {
+            "name": "OpenAPI",
+            "homepage": "https://openapi-generator.tech"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "guzzlehttp/guzzle": "^7.3",
+        "guzzlehttp/psr7": "^1.7 || ^2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.0 || ^9.0",
+        "friendsofphp/php-cs-fixer": "^3.5"
+    },
+    "autoload": {
+        "psr-4": { "Eloom\\BlingApi\\" : "lib/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "Eloom\\BlingApi\\Test\\" : "test/" }
     }
-  },
-  "require-dev": {
-    "phpunit/phpunit": "^9.6",
-    "codeception/codeception": "^4.2",
-    "codeception/module-asserts": "^1.3",
-    "codeception/module-phpbrowser": "^1.0",
-    "vlucas/phpdotenv": "dev-master"
-  }
 }

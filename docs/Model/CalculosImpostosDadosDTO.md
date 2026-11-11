@@ -1,0 +1,45 @@
+# CalculosImpostosDadosDTO
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**faturada** | **bool** |  | [optional]
+**observacoes** | **string** |  | [optional]
+**pisCofinsPresumido** | **bool** |  | [optional]
+**somaImpostosTotal** | **bool** |  | [optional]
+**somaIcmsTotal** | **bool** |  | [optional]
+**aliquotaFunrural** | **float** |  | [optional]
+**descontaFunrural** | **bool** |  | [optional]
+**consumidorFinal** | **bool** |  | [optional]
+**retImpostoRetido** | **bool** |  | [optional]
+**retAliquotaIr** | **float** |  | [optional]
+**retValorIr** | **float** |  | [optional]
+**retAliquotaCsll** | **float** |  | [optional]
+**retValorCsll** | **float** |  | [optional]
+**descontoCondicional** | **bool** |  | [optional]
+**baseComissao** | **float** |  | [optional]
+**icms** | [**\Eloom\BlingApi\Model\CalculosImpostosIcmsDTO**](CalculosImpostosIcmsDTO.md) |  | [optional]
+**valorPmc** | **float** |  | [optional]
+**aliquotaValorAproxImpostos** | **float** |  | [optional]
+**informacoesAdicionaisFisco** | **string** |  | [optional]
+**incluirFreteIpi** | **bool** |  | [optional]
+**simples** | [**\Eloom\BlingApi\Model\CalculosImpostosSimplesDTO**](CalculosImpostosSimplesDTO.md) |  | [optional]
+**ipi** | [**\Eloom\BlingApi\Model\CalculosImpostosIpiDTO**](CalculosImpostosIpiDTO.md) |  | [optional]
+**issqn** | [**\Eloom\BlingApi\Model\CalculosImpostosIssqnDTO**](CalculosImpostosIssqnDTO.md) |  | [optional]
+**pis** | [**\Eloom\BlingApi\Model\CalculosImpostosPisDTO**](CalculosImpostosPisDTO.md) |  | [optional]
+**cofins** | [**\Eloom\BlingApi\Model\CalculosImpostosCofinsDTO**](CalculosImpostosCofinsDTO.md) |  | [optional]
+**icmsSt** | [**\Eloom\BlingApi\Model\CalculosImpostosIcmsStDTO**](CalculosImpostosIcmsStDTO.md) |  | [optional]
+**pisSt** | [**\Eloom\BlingApi\Model\CalculosImpostosDadosBaseDTO**](CalculosImpostosDadosBaseDTO.md) |  | [optional]
+**cofinsSt** | [**\Eloom\BlingApi\Model\CalculosImpostosDadosBaseDTO**](CalculosImpostosDadosBaseDTO.md) |  | [optional]
+**ii** | [**\Eloom\BlingApi\Model\CalculosImpostosDadosBaseDTO**](CalculosImpostosDadosBaseDTO.md) |  | [optional]
+**codigoBeneficioFiscal** | **string** |  | [optional]
+**porcentagemFcp** | **float** |  | [optional]
+**cfop** | **int** |  | [optional]
+**simplesSt** | [**\Eloom\BlingApi\Model\CalculosImpostosDadosBaseDTO**](CalculosImpostosDadosBaseDTO.md) |  | [optional]
+**ibsCbs** | [**\Eloom\BlingApi\Model\CalculosImpostosIbsCbsDTO**](CalculosImpostosIbsCbsDTO.md) |  | [optional]
+**ibs** | [**\Eloom\BlingApi\Model\CalculosImpostosIbsDTO**](CalculosImpostosIbsDTO.md) |  | [optional]
+**cbs** | [**\Eloom\BlingApi\Model\CalculosImpostosCbsDTO**](CalculosImpostosCbsDTO.md) |  | [optional]
+**ibsCbsReg** | [**\Eloom\BlingApi\Model\CalculosImpostosIbsCbsRegDTO**](CalculosImpostosIbsCbsRegDTO.md) |  | [optional]
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
