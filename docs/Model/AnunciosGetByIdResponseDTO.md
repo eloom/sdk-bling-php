@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **id** | **int** | ID do anúncio. | [optional]
 **anuncioLoja** | [**\Eloom\BlingApi\Model\AnunciosGetAllResponseDTOAnuncioLoja**](AnunciosGetAllResponseDTOAnuncioLoja.md) |  | [optional]
 **preco** | [**\Eloom\BlingApi\Model\AnunciosGetByIdResponseDTOPreco**](AnunciosGetByIdResponseDTOPreco.md) |  | [optional]
-**produto** | [**\Eloom\BlingApi\Model\ContasReceberIdContaReceberBaixarPost200ResponseBordero**](ContasReceberIdContaReceberBaixarPost200ResponseBordero.md) |  | [optional]
+**produto** | [**\Eloom\BlingApi\Model\AnunciosGetByIdResponseDTOProduto**](AnunciosGetByIdResponseDTOProduto.md) |  | [optional]
 **titulo** | **string** | Título do anúncio. | [optional]
 **descricao** | **string** | Descrição do anúncio. | [optional]
 **status** | **int** | Situação do anúncio. | [optional]

@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **modalidade** | **string** |  | [optional]
-**catalogo** | [**\Eloom\BlingApi\Model\ContasReceberIdContaReceberBaixarPost200ResponseBordero**](ContasReceberIdContaReceberBaixarPost200ResponseBordero.md) |  | [optional]
-**grade** | [**\Eloom\BlingApi\Model\ContasReceberIdContaReceberBaixarPost200ResponseBordero**](ContasReceberIdContaReceberBaixarPost200ResponseBordero.md) |  | [optional]
+**catalogo** | [**\Eloom\BlingApi\Model\AnunciosSaveRequestBaseMercadoLivreCatalogo**](AnunciosSaveRequestBaseMercadoLivreCatalogo.md) |  | [optional]
+**grade** | [**\Eloom\BlingApi\Model\AnunciosSaveRequestBaseMercadoLivreGrade**](AnunciosSaveRequestBaseMercadoLivreGrade.md) |  | [optional]
 **frete** | [**\Eloom\BlingApi\Model\AnunciosSaveRequestBaseMercadoLivreFrete**](AnunciosSaveRequestBaseMercadoLivreFrete.md) |  | [optional]
 **produtoUsuario** | [**\Eloom\BlingApi\Model\AnunciosSaveRequestBaseMercadoLivreProdutoUsuario**](AnunciosSaveRequestBaseMercadoLivreProdutoUsuario.md) |  | [optional]
 

@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 .php-cs-fixer.dist.php
 .travis.yml
 README.md
@@ -63,18 +62,25 @@ docs/Model/AnunciosGetAllResponseDTOAnuncioLoja.md
 docs/Model/AnunciosGetAttributesFromCategoryResponseDTO.md
 docs/Model/AnunciosGetByIdResponseDTO.md
 docs/Model/AnunciosGetByIdResponseDTOPreco.md
+docs/Model/AnunciosGetByIdResponseDTOProduto.md
 docs/Model/AnunciosIdAnuncioGet200Response.md
 docs/Model/AnunciosImagemDTO.md
 docs/Model/AnunciosPost201Response.md
 docs/Model/AnunciosSaveRequest.md
 docs/Model/AnunciosSaveRequestBase.md
+docs/Model/AnunciosSaveRequestBaseAnuncioLoja.md
 docs/Model/AnunciosSaveRequestBaseAtributosInner.md
+docs/Model/AnunciosSaveRequestBaseCategoria.md
 docs/Model/AnunciosSaveRequestBaseEstoques.md
 docs/Model/AnunciosSaveRequestBaseImagensInner.md
 docs/Model/AnunciosSaveRequestBaseIntegracao.md
+docs/Model/AnunciosSaveRequestBaseLoja.md
 docs/Model/AnunciosSaveRequestBaseMercadoLivre.md
+docs/Model/AnunciosSaveRequestBaseMercadoLivreCatalogo.md
 docs/Model/AnunciosSaveRequestBaseMercadoLivreFrete.md
+docs/Model/AnunciosSaveRequestBaseMercadoLivreGrade.md
 docs/Model/AnunciosSaveRequestBaseMercadoLivreProdutoUsuario.md
+docs/Model/AnunciosSaveRequestBasePreco.md
 docs/Model/AnunciosSaveRequestBaseProduto.md
 docs/Model/AnunciosSaveResponseDTO.md
 docs/Model/AnunciosVariacaoDTO.md
@@ -131,6 +137,7 @@ docs/Model/CamposCustomizadosModulosGet200ResponseDataInner.md
 docs/Model/CamposCustomizadosModulosIdModuloGet200Response.md
 docs/Model/CamposCustomizadosOpcaoDTO.md
 docs/Model/CamposCustomizadosPermissaoDTO.md
+docs/Model/CamposCustomizadosPostRequest.md
 docs/Model/CamposCustomizadosResponsePOSTPUT.md
 docs/Model/CamposCustomizadosTamanhoDTO.md
 docs/Model/CamposCustomizadosTipoBaseDTO.md
@@ -156,6 +163,7 @@ docs/Model/CategoriasProdutosDadosDTO.md
 docs/Model/CategoriasProdutosGet200Response.md
 docs/Model/CategoriasProdutosGet200ResponseDataInner.md
 docs/Model/CategoriasProdutosIdCategoriaProdutoGet200Response.md
+docs/Model/CategoriasProdutosIdCategoriaProdutoGet200ResponseData.md
 docs/Model/CategoriasReceitasDespesasDadosBaseDTO.md
 docs/Model/CategoriasReceitasDespesasDadosDTO.md
 docs/Model/CategoriasReceitasDespesasDadosPostDTO.md
@@ -243,6 +251,7 @@ docs/Model/ContatosFinanceiroCategoriaDTO.md
 docs/Model/ContatosFinanceiroDTO.md
 docs/Model/ContatosGet200Response.md
 docs/Model/ContatosIdContatoGet200Response.md
+docs/Model/ContatosIdContatoGet200ResponseData.md
 docs/Model/ContatosIdContatoSituacoesPatchRequest.md
 docs/Model/ContatosIdContatoTiposGet200Response.md
 docs/Model/ContatosPaisDTO.md
@@ -263,6 +272,7 @@ docs/Model/ContratosDescontoDTO.md
 docs/Model/ContratosFormaPagamentoDTO.md
 docs/Model/ContratosGet200Response.md
 docs/Model/ContratosIdContratoGet200Response.md
+docs/Model/ContratosIdContratoGet200ResponseData.md
 docs/Model/ContratosNotaFiscalDTO.md
 docs/Model/ContratosNotaFiscalISSDTO.md
 docs/Model/ContratosNotaFiscalItemDTO.md
@@ -301,6 +311,7 @@ docs/Model/FormasPagamentosDadosDTO.md
 docs/Model/FormasPagamentosDefinirPadraoDTO.md
 docs/Model/FormasPagamentosGet200Response.md
 docs/Model/FormasPagamentosIdFormaPagamentoGet200Response.md
+docs/Model/FormasPagamentosIdFormaPagamentoGet200ResponseData.md
 docs/Model/FormasPagamentosPost201Response.md
 docs/Model/FormasPagamentosPostRequest.md
 docs/Model/FormasPagamentosTaxaDTO.md
@@ -513,6 +524,7 @@ docs/Model/PedidosComprasFormaPagamentoDTO.md
 docs/Model/PedidosComprasFornecedorDTO.md
 docs/Model/PedidosComprasGet200Response.md
 docs/Model/PedidosComprasIdPedidoCompraGet200Response.md
+docs/Model/PedidosComprasIdPedidoCompraGet200ResponseData.md
 docs/Model/PedidosComprasItemDTO.md
 docs/Model/PedidosComprasItemNotaFiscalDTO.md
 docs/Model/PedidosComprasParcelaDTO.md
@@ -527,6 +539,7 @@ docs/Model/PedidosVendasDelete200Response.md
 docs/Model/PedidosVendasDelete200ResponseData.md
 docs/Model/PedidosVendasGet200Response.md
 docs/Model/PedidosVendasIdPedidoVendaGet200Response.md
+docs/Model/PedidosVendasIdPedidoVendaGet200ResponseData.md
 docs/Model/PedidosVendasIdPedidoVendaPutRequest.md
 docs/Model/PedidosVendasPost201Response.md
 docs/Model/PedidosVendasPost201ResponseData.md
@@ -568,6 +581,7 @@ docs/Model/ProdutosFornecedoresFornecedorDTO.md
 docs/Model/ProdutosFornecedoresFornecedorUpdateDTO.md
 docs/Model/ProdutosFornecedoresGet200Response.md
 docs/Model/ProdutosFornecedoresIdProdutoFornecedorGet200Response.md
+docs/Model/ProdutosFornecedoresIdProdutoFornecedorGet200ResponseData.md
 docs/Model/ProdutosFornecedoresIdProdutoFornecedorPutRequest.md
 docs/Model/ProdutosFornecedoresPostRequest.md
 docs/Model/ProdutosFornecedoresProdutoDTO.md
@@ -589,6 +603,7 @@ docs/Model/ProdutosLojasDadosDTO.md
 docs/Model/ProdutosLojasFornecedorLojaDTO.md
 docs/Model/ProdutosLojasGet200Response.md
 docs/Model/ProdutosLojasIdProdutoLojaGet200Response.md
+docs/Model/ProdutosLojasIdProdutoLojaGet200ResponseData.md
 docs/Model/ProdutosLojasLojaDTO.md
 docs/Model/ProdutosLojasMarcaLojaDTO.md
 docs/Model/ProdutosLojasPost201Response.md
@@ -596,6 +611,7 @@ docs/Model/ProdutosLojasPost201ResponseData.md
 docs/Model/ProdutosLojasPostRequest.md
 docs/Model/ProdutosLojasProdutoDTO.md
 docs/Model/ProdutosLojasResponsePOSTPUT.md
+docs/Model/ProdutosLojasResponsePOSTPUTCategoriasProdutosInner.md
 docs/Model/ProdutosLotesControlaLoteGet200Response.md
 docs/Model/ProdutosLotesGet200Response.md
 docs/Model/ProdutosLotesIdLoteGet200Response.md
@@ -627,6 +643,7 @@ docs/Model/SituacoesAcaoDTO.md
 docs/Model/SituacoesDTO.md
 docs/Model/SituacoesDadosDTO.md
 docs/Model/SituacoesIdSituacaoGet200Response.md
+docs/Model/SituacoesIdSituacaoGet200ResponseData.md
 docs/Model/SituacoesIdSituacaoPutRequest.md
 docs/Model/SituacoesModuloBaseDTO.md
 docs/Model/SituacoesModuloDTO.md
@@ -740,18 +757,25 @@ lib/Model/AnunciosGetAllResponseDTOAnuncioLoja.php
 lib/Model/AnunciosGetAttributesFromCategoryResponseDTO.php
 lib/Model/AnunciosGetByIdResponseDTO.php
 lib/Model/AnunciosGetByIdResponseDTOPreco.php
+lib/Model/AnunciosGetByIdResponseDTOProduto.php
 lib/Model/AnunciosIdAnuncioGet200Response.php
 lib/Model/AnunciosImagemDTO.php
 lib/Model/AnunciosPost201Response.php
 lib/Model/AnunciosSaveRequest.php
 lib/Model/AnunciosSaveRequestBase.php
+lib/Model/AnunciosSaveRequestBaseAnuncioLoja.php
 lib/Model/AnunciosSaveRequestBaseAtributosInner.php
+lib/Model/AnunciosSaveRequestBaseCategoria.php
 lib/Model/AnunciosSaveRequestBaseEstoques.php
 lib/Model/AnunciosSaveRequestBaseImagensInner.php
 lib/Model/AnunciosSaveRequestBaseIntegracao.php
+lib/Model/AnunciosSaveRequestBaseLoja.php
 lib/Model/AnunciosSaveRequestBaseMercadoLivre.php
+lib/Model/AnunciosSaveRequestBaseMercadoLivreCatalogo.php
 lib/Model/AnunciosSaveRequestBaseMercadoLivreFrete.php
+lib/Model/AnunciosSaveRequestBaseMercadoLivreGrade.php
 lib/Model/AnunciosSaveRequestBaseMercadoLivreProdutoUsuario.php
+lib/Model/AnunciosSaveRequestBasePreco.php
 lib/Model/AnunciosSaveRequestBaseProduto.php
 lib/Model/AnunciosSaveResponseDTO.php
 lib/Model/AnunciosVariacaoDTO.php
@@ -808,6 +832,7 @@ lib/Model/CamposCustomizadosModulosGet200ResponseDataInner.php
 lib/Model/CamposCustomizadosModulosIdModuloGet200Response.php
 lib/Model/CamposCustomizadosOpcaoDTO.php
 lib/Model/CamposCustomizadosPermissaoDTO.php
+lib/Model/CamposCustomizadosPostRequest.php
 lib/Model/CamposCustomizadosResponsePOSTPUT.php
 lib/Model/CamposCustomizadosTamanhoDTO.php
 lib/Model/CamposCustomizadosTipoBaseDTO.php
@@ -833,6 +858,7 @@ lib/Model/CategoriasProdutosDadosDTO.php
 lib/Model/CategoriasProdutosGet200Response.php
 lib/Model/CategoriasProdutosGet200ResponseDataInner.php
 lib/Model/CategoriasProdutosIdCategoriaProdutoGet200Response.php
+lib/Model/CategoriasProdutosIdCategoriaProdutoGet200ResponseData.php
 lib/Model/CategoriasReceitasDespesasDadosBaseDTO.php
 lib/Model/CategoriasReceitasDespesasDadosDTO.php
 lib/Model/CategoriasReceitasDespesasDadosPostDTO.php
@@ -920,6 +946,7 @@ lib/Model/ContatosFinanceiroCategoriaDTO.php
 lib/Model/ContatosFinanceiroDTO.php
 lib/Model/ContatosGet200Response.php
 lib/Model/ContatosIdContatoGet200Response.php
+lib/Model/ContatosIdContatoGet200ResponseData.php
 lib/Model/ContatosIdContatoSituacoesPatchRequest.php
 lib/Model/ContatosIdContatoTiposGet200Response.php
 lib/Model/ContatosPaisDTO.php
@@ -940,6 +967,7 @@ lib/Model/ContratosDescontoDTO.php
 lib/Model/ContratosFormaPagamentoDTO.php
 lib/Model/ContratosGet200Response.php
 lib/Model/ContratosIdContratoGet200Response.php
+lib/Model/ContratosIdContratoGet200ResponseData.php
 lib/Model/ContratosNotaFiscalDTO.php
 lib/Model/ContratosNotaFiscalISSDTO.php
 lib/Model/ContratosNotaFiscalItemDTO.php
@@ -978,6 +1006,7 @@ lib/Model/FormasPagamentosDadosDTO.php
 lib/Model/FormasPagamentosDefinirPadraoDTO.php
 lib/Model/FormasPagamentosGet200Response.php
 lib/Model/FormasPagamentosIdFormaPagamentoGet200Response.php
+lib/Model/FormasPagamentosIdFormaPagamentoGet200ResponseData.php
 lib/Model/FormasPagamentosPost201Response.php
 lib/Model/FormasPagamentosPostRequest.php
 lib/Model/FormasPagamentosTaxaDTO.php
@@ -1191,6 +1220,7 @@ lib/Model/PedidosComprasFormaPagamentoDTO.php
 lib/Model/PedidosComprasFornecedorDTO.php
 lib/Model/PedidosComprasGet200Response.php
 lib/Model/PedidosComprasIdPedidoCompraGet200Response.php
+lib/Model/PedidosComprasIdPedidoCompraGet200ResponseData.php
 lib/Model/PedidosComprasItemDTO.php
 lib/Model/PedidosComprasItemNotaFiscalDTO.php
 lib/Model/PedidosComprasParcelaDTO.php
@@ -1205,6 +1235,7 @@ lib/Model/PedidosVendasDelete200Response.php
 lib/Model/PedidosVendasDelete200ResponseData.php
 lib/Model/PedidosVendasGet200Response.php
 lib/Model/PedidosVendasIdPedidoVendaGet200Response.php
+lib/Model/PedidosVendasIdPedidoVendaGet200ResponseData.php
 lib/Model/PedidosVendasIdPedidoVendaPutRequest.php
 lib/Model/PedidosVendasPost201Response.php
 lib/Model/PedidosVendasPost201ResponseData.php
@@ -1246,6 +1277,7 @@ lib/Model/ProdutosFornecedoresFornecedorDTO.php
 lib/Model/ProdutosFornecedoresFornecedorUpdateDTO.php
 lib/Model/ProdutosFornecedoresGet200Response.php
 lib/Model/ProdutosFornecedoresIdProdutoFornecedorGet200Response.php
+lib/Model/ProdutosFornecedoresIdProdutoFornecedorGet200ResponseData.php
 lib/Model/ProdutosFornecedoresIdProdutoFornecedorPutRequest.php
 lib/Model/ProdutosFornecedoresPostRequest.php
 lib/Model/ProdutosFornecedoresProdutoDTO.php
@@ -1267,6 +1299,7 @@ lib/Model/ProdutosLojasDadosDTO.php
 lib/Model/ProdutosLojasFornecedorLojaDTO.php
 lib/Model/ProdutosLojasGet200Response.php
 lib/Model/ProdutosLojasIdProdutoLojaGet200Response.php
+lib/Model/ProdutosLojasIdProdutoLojaGet200ResponseData.php
 lib/Model/ProdutosLojasLojaDTO.php
 lib/Model/ProdutosLojasMarcaLojaDTO.php
 lib/Model/ProdutosLojasPost201Response.php
@@ -1274,6 +1307,7 @@ lib/Model/ProdutosLojasPost201ResponseData.php
 lib/Model/ProdutosLojasPostRequest.php
 lib/Model/ProdutosLojasProdutoDTO.php
 lib/Model/ProdutosLojasResponsePOSTPUT.php
+lib/Model/ProdutosLojasResponsePOSTPUTCategoriasProdutosInner.php
 lib/Model/ProdutosLotesControlaLoteGet200Response.php
 lib/Model/ProdutosLotesGet200Response.php
 lib/Model/ProdutosLotesIdLoteGet200Response.php
@@ -1305,6 +1339,7 @@ lib/Model/SituacoesAcaoDTO.php
 lib/Model/SituacoesDTO.php
 lib/Model/SituacoesDadosDTO.php
 lib/Model/SituacoesIdSituacaoGet200Response.php
+lib/Model/SituacoesIdSituacaoGet200ResponseData.php
 lib/Model/SituacoesIdSituacaoPutRequest.php
 lib/Model/SituacoesModuloBaseDTO.php
 lib/Model/SituacoesModuloDTO.php
@@ -1414,17 +1449,24 @@ test/Model/AnunciosGetAllResponseDTOAnuncioLojaTest.php
 test/Model/AnunciosGetAllResponseDTOTest.php
 test/Model/AnunciosGetAttributesFromCategoryResponseDTOTest.php
 test/Model/AnunciosGetByIdResponseDTOPrecoTest.php
+test/Model/AnunciosGetByIdResponseDTOProdutoTest.php
 test/Model/AnunciosGetByIdResponseDTOTest.php
 test/Model/AnunciosIdAnuncioGet200ResponseTest.php
 test/Model/AnunciosImagemDTOTest.php
 test/Model/AnunciosPost201ResponseTest.php
+test/Model/AnunciosSaveRequestBaseAnuncioLojaTest.php
 test/Model/AnunciosSaveRequestBaseAtributosInnerTest.php
+test/Model/AnunciosSaveRequestBaseCategoriaTest.php
 test/Model/AnunciosSaveRequestBaseEstoquesTest.php
 test/Model/AnunciosSaveRequestBaseImagensInnerTest.php
 test/Model/AnunciosSaveRequestBaseIntegracaoTest.php
+test/Model/AnunciosSaveRequestBaseLojaTest.php
+test/Model/AnunciosSaveRequestBaseMercadoLivreCatalogoTest.php
 test/Model/AnunciosSaveRequestBaseMercadoLivreFreteTest.php
+test/Model/AnunciosSaveRequestBaseMercadoLivreGradeTest.php
 test/Model/AnunciosSaveRequestBaseMercadoLivreProdutoUsuarioTest.php
 test/Model/AnunciosSaveRequestBaseMercadoLivreTest.php
+test/Model/AnunciosSaveRequestBasePrecoTest.php
 test/Model/AnunciosSaveRequestBaseProdutoTest.php
 test/Model/AnunciosSaveRequestBaseTest.php
 test/Model/AnunciosSaveRequestTest.php
@@ -1483,6 +1525,7 @@ test/Model/CamposCustomizadosModulosGet200ResponseTest.php
 test/Model/CamposCustomizadosModulosIdModuloGet200ResponseTest.php
 test/Model/CamposCustomizadosOpcaoDTOTest.php
 test/Model/CamposCustomizadosPermissaoDTOTest.php
+test/Model/CamposCustomizadosPostRequestTest.php
 test/Model/CamposCustomizadosResponsePOSTPUTTest.php
 test/Model/CamposCustomizadosTamanhoDTOTest.php
 test/Model/CamposCustomizadosTipoBaseDTOTest.php
@@ -1507,6 +1550,7 @@ test/Model/CategoriasProdutosCategoriPaiDTOTest.php
 test/Model/CategoriasProdutosDadosDTOTest.php
 test/Model/CategoriasProdutosGet200ResponseDataInnerTest.php
 test/Model/CategoriasProdutosGet200ResponseTest.php
+test/Model/CategoriasProdutosIdCategoriaProdutoGet200ResponseDataTest.php
 test/Model/CategoriasProdutosIdCategoriaProdutoGet200ResponseTest.php
 test/Model/CategoriasReceitasDespesasDadosBaseDTOTest.php
 test/Model/CategoriasReceitasDespesasDadosDTOTest.php
@@ -1594,6 +1638,7 @@ test/Model/ContatosEnderecoDadosDTOTest.php
 test/Model/ContatosFinanceiroCategoriaDTOTest.php
 test/Model/ContatosFinanceiroDTOTest.php
 test/Model/ContatosGet200ResponseTest.php
+test/Model/ContatosIdContatoGet200ResponseDataTest.php
 test/Model/ContatosIdContatoGet200ResponseTest.php
 test/Model/ContatosIdContatoSituacoesPatchRequestTest.php
 test/Model/ContatosIdContatoTiposGet200ResponseTest.php
@@ -1614,6 +1659,7 @@ test/Model/ContratosDadosDTOTest.php
 test/Model/ContratosDescontoDTOTest.php
 test/Model/ContratosFormaPagamentoDTOTest.php
 test/Model/ContratosGet200ResponseTest.php
+test/Model/ContratosIdContratoGet200ResponseDataTest.php
 test/Model/ContratosIdContratoGet200ResponseTest.php
 test/Model/ContratosNotaFiscalDTOTest.php
 test/Model/ContratosNotaFiscalISSDTOTest.php
@@ -1652,6 +1698,7 @@ test/Model/FormasPagamentosDadosCartaoDTOTest.php
 test/Model/FormasPagamentosDadosDTOTest.php
 test/Model/FormasPagamentosDefinirPadraoDTOTest.php
 test/Model/FormasPagamentosGet200ResponseTest.php
+test/Model/FormasPagamentosIdFormaPagamentoGet200ResponseDataTest.php
 test/Model/FormasPagamentosIdFormaPagamentoGet200ResponseTest.php
 test/Model/FormasPagamentosPost201ResponseTest.php
 test/Model/FormasPagamentosPostRequestTest.php
@@ -1864,6 +1911,7 @@ test/Model/PedidosComprasDescontoDTOTest.php
 test/Model/PedidosComprasFormaPagamentoDTOTest.php
 test/Model/PedidosComprasFornecedorDTOTest.php
 test/Model/PedidosComprasGet200ResponseTest.php
+test/Model/PedidosComprasIdPedidoCompraGet200ResponseDataTest.php
 test/Model/PedidosComprasIdPedidoCompraGet200ResponseTest.php
 test/Model/PedidosComprasItemDTOTest.php
 test/Model/PedidosComprasItemNotaFiscalDTOTest.php
@@ -1878,6 +1926,7 @@ test/Model/PedidosComprasTributacaoDTOTest.php
 test/Model/PedidosVendasDelete200ResponseDataTest.php
 test/Model/PedidosVendasDelete200ResponseTest.php
 test/Model/PedidosVendasGet200ResponseTest.php
+test/Model/PedidosVendasIdPedidoVendaGet200ResponseDataTest.php
 test/Model/PedidosVendasIdPedidoVendaGet200ResponseTest.php
 test/Model/PedidosVendasIdPedidoVendaPutRequestTest.php
 test/Model/PedidosVendasPost201ResponseDataTest.php
@@ -1919,6 +1968,7 @@ test/Model/ProdutosFornecedoresDadosUpdateDTOTest.php
 test/Model/ProdutosFornecedoresFornecedorDTOTest.php
 test/Model/ProdutosFornecedoresFornecedorUpdateDTOTest.php
 test/Model/ProdutosFornecedoresGet200ResponseTest.php
+test/Model/ProdutosFornecedoresIdProdutoFornecedorGet200ResponseDataTest.php
 test/Model/ProdutosFornecedoresIdProdutoFornecedorGet200ResponseTest.php
 test/Model/ProdutosFornecedoresIdProdutoFornecedorPutRequestTest.php
 test/Model/ProdutosFornecedoresPostRequestTest.php
@@ -1940,6 +1990,7 @@ test/Model/ProdutosLojasDadosBaseDTOTest.php
 test/Model/ProdutosLojasDadosDTOTest.php
 test/Model/ProdutosLojasFornecedorLojaDTOTest.php
 test/Model/ProdutosLojasGet200ResponseTest.php
+test/Model/ProdutosLojasIdProdutoLojaGet200ResponseDataTest.php
 test/Model/ProdutosLojasIdProdutoLojaGet200ResponseTest.php
 test/Model/ProdutosLojasLojaDTOTest.php
 test/Model/ProdutosLojasMarcaLojaDTOTest.php
@@ -1947,6 +1998,7 @@ test/Model/ProdutosLojasPost201ResponseDataTest.php
 test/Model/ProdutosLojasPost201ResponseTest.php
 test/Model/ProdutosLojasPostRequestTest.php
 test/Model/ProdutosLojasProdutoDTOTest.php
+test/Model/ProdutosLojasResponsePOSTPUTCategoriasProdutosInnerTest.php
 test/Model/ProdutosLojasResponsePOSTPUTTest.php
 test/Model/ProdutosLotesControlaLoteGet200ResponseTest.php
 test/Model/ProdutosLotesGet200ResponseTest.php
@@ -1978,6 +2030,7 @@ test/Model/SaveResponseLotsDTOTest.php
 test/Model/SituacoesAcaoDTOTest.php
 test/Model/SituacoesDTOTest.php
 test/Model/SituacoesDadosDTOTest.php
+test/Model/SituacoesIdSituacaoGet200ResponseDataTest.php
 test/Model/SituacoesIdSituacaoGet200ResponseTest.php
 test/Model/SituacoesIdSituacaoPutRequestTest.php
 test/Model/SituacoesModuloBaseDTOTest.php

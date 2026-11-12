@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**\Eloom\BlingApi\Model\FormasPagamentosPostRequest**](FormasPagamentosPostRequest.md) |  | [optional]
+**data** | [**\Eloom\BlingApi\Model\FormasPagamentosIdFormaPagamentoGet200ResponseData**](FormasPagamentosIdFormaPagamentoGet200ResponseData.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

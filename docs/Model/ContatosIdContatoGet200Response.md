@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**\Eloom\BlingApi\Model\ContatosPostRequest**](ContatosPostRequest.md) |  | [optional]
+**data** | [**\Eloom\BlingApi\Model\ContatosIdContatoGet200ResponseData**](ContatosIdContatoGet200ResponseData.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

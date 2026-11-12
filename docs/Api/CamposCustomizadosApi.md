@@ -400,7 +400,7 @@ try {
 ## `camposCustomizadosPost()`
 
 ```php
-camposCustomizadosPost($camposCustomizadosIdCampoCustomizadoGet200ResponseData): \Eloom\BlingApi\Model\CamposCustomizadosIdCampoCustomizadoPut200Response
+camposCustomizadosPost($camposCustomizadosPostRequest): \Eloom\BlingApi\Model\CamposCustomizadosIdCampoCustomizadoPut200Response
 ```
 
 Cria um campo customizado
@@ -427,10 +427,10 @@ $apiInstance = new Eloom\BlingApi\Api\CamposCustomizadosApi(
     new GuzzleHttp\Client(),
     $config
 );
-$camposCustomizadosIdCampoCustomizadoGet200ResponseData = new \Eloom\BlingApi\Model\CamposCustomizadosIdCampoCustomizadoGet200ResponseData(); // \Eloom\BlingApi\Model\CamposCustomizadosIdCampoCustomizadoGet200ResponseData
+$camposCustomizadosPostRequest = new \Eloom\BlingApi\Model\CamposCustomizadosPostRequest(); // \Eloom\BlingApi\Model\CamposCustomizadosPostRequest
 
 try {
-    $result = $apiInstance->camposCustomizadosPost($camposCustomizadosIdCampoCustomizadoGet200ResponseData);
+    $result = $apiInstance->camposCustomizadosPost($camposCustomizadosPostRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CamposCustomizadosApi->camposCustomizadosPost: ', $e->getMessage(), PHP_EOL;
@@ -441,7 +441,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **camposCustomizadosIdCampoCustomizadoGet200ResponseData** | [**\Eloom\BlingApi\Model\CamposCustomizadosIdCampoCustomizadoGet200ResponseData**](../Model/CamposCustomizadosIdCampoCustomizadoGet200ResponseData.md)|  | |
+| **camposCustomizadosPostRequest** | [**\Eloom\BlingApi\Model\CamposCustomizadosPostRequest**](../Model/CamposCustomizadosPostRequest.md)|  | |
 
 ### Return type
 

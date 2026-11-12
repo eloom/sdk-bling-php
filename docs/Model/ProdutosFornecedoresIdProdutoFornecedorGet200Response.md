@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**\Eloom\BlingApi\Model\ProdutosFornecedoresPostRequest**](ProdutosFornecedoresPostRequest.md) |  | [optional]
+**data** | [**\Eloom\BlingApi\Model\ProdutosFornecedoresIdProdutoFornecedorGet200ResponseData**](ProdutosFornecedoresIdProdutoFornecedorGet200ResponseData.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
